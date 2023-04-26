@@ -1,15 +1,13 @@
 import pandas as pd
 import pickle
 from collections import defaultdict
-import warnings
 
-warnings.filterwarnings('ignore')
 import numpy as np
 import re
 
 import nltk
 
-nltk.download('stopwords')
+# nltk.download('stopwords', ssl=False)
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -71,6 +69,14 @@ class Preprocessor:
         df['text'] = df['text'].apply(lambda x: ' '.join([lemmatizer.lemmatize(word) for word in x.split()]))
         return df
 
+    def lowercase(self, df):
+        """
+        Lowercase the text data
+        :return:
+        """
+        df['text'] = df['text'].str.lower()
+        return df
+
     def remove_stopwords(self, df):
         """
         Remove stopwords from the text data
@@ -116,6 +122,8 @@ class Preprocessor:
         
     def remove_special_characters(self, df):
         df["text"] = df["text"].apply(lambda t: re.sub(r"[^a-zA-Z0-9\s]+", "", t))
+        df["text"] = df["text"].apply(lambda t: re.sub(r"[\n]+", "", re.sub(r"[^a-zA-Z0-9\s]+", " ", t)))
+
         return df
 
     def keyword_one_hot_encoding(self, df):
@@ -170,8 +178,51 @@ def preprocessing_pipeline():
 
 
 if __name__ == '__main__':
-    df = pd.read_csv('../data/train.csv')
+    import pandas as pd
+    import numpy as np
+    import nltk
+    nltk.download('wordnet')
+
+    df1 = pd.read_csv("../data/CEFR-CEFR_kaggle.csv")
+    df2 = pd.read_csv("../data/CEFR-NewsInLevels_dataset.csv")
+    df3 = pd.read_csv("../data/CEFR-OneStopEnglishCorpus_Dataset.csv")
+
+    # Mapping dictionary
+    mapping = {'A': 1, 'B': 2, 'C': 3}
+
+    # Update the DataFrame column
+    df1['label'] = df1['label'].str[0].map(mapping)
+    df2.rename(columns={"level": "label"}, inplace=True)
+    df2 = df2[["text", "label"]]
+
+    df3.rename(columns={"level": "label"}, inplace=True)
+    df3 = df3[["text", "label"]]
+
+    mapping = {'Elementary': 1, 'Intermediate': 2, 'Advanced': 3}
+    df3['label'] = df3['label'].map(mapping)
+
+    maindf = pd.concat([df1, df2, df3])
+    maindf.reset_index(drop=True, inplace=True)
+    y = maindf["label"]
+    maindf.drop(columns=["label"], inplace=True)
+
     print('Preprocessing the data...')
-    preprocessor = preprocessing_pipeline(args)
-    df = preprocessor.fit_transform(df)
-    df.to_csv('../data/train_preprocessed.csv', index=False)
+    # preprocessor = preprocessing_pipeline()
+    # X = preprocessor.fit_transform(X)
+
+    preprocessor = Preprocessor()
+    df = preprocessor.remove_special_characters(maindf)
+    df = preprocessor.lowercase(df)
+    df = preprocessor.remove_stopwords(df)
+    df = preprocessor.preprocessing_text(df)
+    df = preprocessor.standardize_text(df)
+    df = preprocessor.lemmatize(df)
+    df = df.fillna('no_value')
+
+    # change np.nan to 'no_value' for text column
+    df['text'] = df['text'].fillna('no_value')
+    df['text'] = df['text'].apply(lambda t: t.replace('%20', '_'))
+
+    # encoded_df = self.keyword_one_hot_encoding(df)
+    # df = df.join(encoded_df)
+    print("Preprocessing completed.")
