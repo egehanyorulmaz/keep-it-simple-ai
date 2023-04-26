@@ -153,11 +153,11 @@ class CustomizedProcessor(BaseEstimator, TransformerMixin, Preprocessor):
         return self
 
     def transform(self, data):
-        df = self.remove_special_characters(data)
-        df = self.remove_stopwords(df)
-        df = self.preprocessing_text(df)
-        df = self.standardize_text(df)
-        df = self.lemmatize(df)
+        df = preprocessor.lowercase(data)
+        df = preprocessor.remove_stopwords(df)
+        df = preprocessor.preprocessing_text(df)
+        df = preprocessor.standardize_text(df)
+        df = preprocessor.lemmatize(df)
         df = df.fillna('no_value')
         
         # change np.nan to 'no_value' for text column
