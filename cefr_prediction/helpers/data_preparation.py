@@ -226,3 +226,5 @@ if __name__ == '__main__':
     # encoded_df = self.keyword_one_hot_encoding(df)
     # df = df.join(encoded_df)
     print("Preprocessing completed.")
+    df["label"] = y
+    df.to_csv("../data/train_data.csv", index=False)
