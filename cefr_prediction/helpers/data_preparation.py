@@ -7,7 +7,9 @@ import re
 
 import nltk
 
-# nltk.download('stopwords', ssl=False)
+
+nltk.download('stopwords')
+
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -69,6 +71,7 @@ class Preprocessor:
         df['text'] = df['text'].apply(lambda x: ' '.join([lemmatizer.lemmatize(word) for word in x.split()]))
         return df
 
+
     def lowercase(self, df):
         """
         Lowercase the text data
@@ -76,6 +79,7 @@ class Preprocessor:
         """
         df['text'] = df['text'].str.lower()
         return df
+
 
     def remove_stopwords(self, df):
         """
@@ -124,6 +128,7 @@ class Preprocessor:
         df["text"] = df["text"].apply(lambda t: re.sub(r"[^a-zA-Z0-9\s]+", "", t))
         df["text"] = df["text"].apply(lambda t: re.sub(r"[\n]+", "", re.sub(r"[^a-zA-Z0-9\s]+", " ", t)))
 
+
         return df
 
     def keyword_one_hot_encoding(self, df):
@@ -154,10 +159,12 @@ class CustomizedProcessor(BaseEstimator, TransformerMixin, Preprocessor):
 
     def transform(self, data):
         df = preprocessor.lowercase(data)
+        df = self.remove_special_characters(data)
         df = preprocessor.remove_stopwords(df)
         df = preprocessor.preprocessing_text(df)
         df = preprocessor.standardize_text(df)
         df = preprocessor.lemmatize(df)
+
         df = df.fillna('no_value')
         
         # change np.nan to 'no_value' for text column
