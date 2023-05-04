@@ -1,1 +1,4 @@
-ktrain
+ktrain==0.33.0
+contractions
+SnowballStemmer
+nltk
