@@ -10,8 +10,11 @@ def list_blobs(bucket_name, folder_name):
     gcs_client = storage.Client()
     bucket = gcs_client.bucket(bucket_name)
     blobs = list(bucket.list_blobs(prefix=folder_name))
+    file_names = []
     for blob in blobs:
         print(blob.name + '\t' + str(blob.size))
+        file_names.append(blob.name)
+    return file_names
         
 def upload_blob(bucket_name, source_file_name, destination_blob_name):
     """Uploads a file to the bucket."""    
