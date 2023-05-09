@@ -37,11 +37,11 @@ class PDFDriveCrawler:
         try:
             # Wait for the element to be visible
             element = wait.until(
-                EC.presence_of_element_located(by=By.CSS_SELECTOR, value="#pdfdriveAlerts > div > div > div > i"))
+                EC.presence_of_element_located([By.XPATH, "/html/body/div[3]/div[2]/div/div/div/i"]))
             # Click on the element
             element.click()
             print("Promotion pop-up passed")
-        except TimeoutException:
+        except:
             print("No promotion pop-up found")
         self.promotion_appear_counter += 1
 
@@ -65,7 +65,7 @@ class PDFDriveCrawler:
 
     def click_download_button(self) -> None:
         """Click the download button for the current book."""
-        url =  self.__get_download_button_hyperlink()
+        url = self.__get_download_button_hyperlink()
         self.driver.get(url)
         self.wait.until(EC.presence_of_element_located((By.TAG_NAME, 'title')))
         print("Clicked to download button")
@@ -84,8 +84,8 @@ class PDFDriveCrawler:
         """Check if the current book is in EPUB format."""
         soup = self.__get_soup(_type='html.parser')
         text = soup.get_text().strip()
-        is_epub = 'EPUB' in text
-        return is_epub
+        is_pdf = 'Download ( PDF )' in text
+        return is_pdf
     
     def get_books_after_search(self) -> pd.DataFrame:
         """Get a DataFrame of the books after searching."""
@@ -133,11 +133,11 @@ class PDFDriveCrawler:
         input_tokens = set(word_tokenize(book_name.lower()))
 
         # Calculate the Jaccard distance for each title
-        df['distance'] = df['title'].apply(lambda x: len(set(word_tokenize(x.lower())) & input_tokens) / len(set(word_tokenize(x.lower())) | input_tokens))
+        df['similarity'] = df['title'].apply(lambda x: len(set(word_tokenize(x.lower())) & input_tokens) / len(set(word_tokenize(x.lower())) | input_tokens))
 
         # Return the index of the first row with a distance above the threshold
         try:
-            result_index = df.index[df['distance'] > threshold].tolist()[0]
+            result_index = df.index[df['similarity'] > threshold].tolist()[0]
             if result_index >= 3:
                 # if the filtered book is after the 3rd place, then it is not available
                 return -1
@@ -190,7 +190,7 @@ class PDFDriveCrawler:
         soup = self.__get_soup()
         # Find the 'a' tag using the provided CSS selector
         CSS_SELECTOR = f"""body > div.dialog > div.dialog-main > div.dialog-left > div.files-new > ul > 
-        li:nth-child({book_index}) > div > div > div.file-right > a"""
+        li:nth-child({book_index+1}) > div > div > div.file-right > a"""
 
         a_tag = soup.select_one(CSS_SELECTOR)
         # Extract the href attribute from the 'a' tag
@@ -222,3 +222,21 @@ class PDFDriveCrawler:
             
         url = self.base_url + hyperlink
         return url
+
+if __name__ == '__main__':
+    # Path: pdf_drive_crawler/crawler.ipynb
+    book_level = pd.read_csv('book_levels.csv')
+
+    crawler = PDFDriveCrawler("https://www.pdfdrive.com/")
+    for book_name in list(book_level["title"]):
+        crawler.search_book(book_name)
+        books = crawler.get_books_after_search()
+        idx = crawler.get_most_similar_title(df=books, book_name=book_name)
+        if idx == -1:
+            # book doesn't exist
+            continue
+        crawler.click_book_details(book_index=idx)
+        crawler.click_download_button()
+        crawler.check_book_file_type()
+        crawler.download_book()
+        time.sleep(10)
