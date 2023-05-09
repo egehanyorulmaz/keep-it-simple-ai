@@ -145,8 +145,8 @@ class CustomizedProcessor(BaseEstimator, TransformerMixin, Preprocessor):
         return self
 
     def transform(self, data):
-        df = df.fillna('no_value')
-        df = self.remove_special_characters(data)
+        df = data.fillna('no_value')
+        df = self.remove_special_characters(df)
         df = self.remove_stopwords(df)
         df = self.preprocessing_text(df)
         df = self.standardize_text(df)
@@ -168,6 +168,37 @@ def preprocessing_pipeline():
     """
     return Pipeline(steps=[('preprocessor', CustomizedProcessor())])
 
+def cefr_model(input_str):
+    """
+    Create label for input str
+    """
+
+    ## TODO @Egehan/@Lavanya
+    ## label = 
+
+
+    return label
+
+
+def cefr_classifier(df):
+    """
+    Load pretrained cefr model and generate data labels
+    """
+
+    src = df[["source"]].rename(columns={'source': 'text'})
+    dst = df[["target"]].rename(columns={'target': 'text'})
+
+    ## TODO: Preprocess text col
+    preprocessor = preprocessing_pipeline()
+    src1 = preprocessor.fit_transform(src)
+    dst1 = preprocessor.fit_transform(dst)
+
+    ## TODO: Would parallel apply work here....please check
+    df['source_level_cefr'] = src1.parallel_apply(lambda x: cefr_model(x))
+    df['target_level_cefr'] = dst1.parallel_apply(lambda x: cefr_model(x))
+
+    return df
+
 
 if __name__ == '__main__':
     import pandas as pd
@@ -175,50 +206,163 @@ if __name__ == '__main__':
     import nltk
     nltk.download('wordnet')
 
-    df1 = pd.read_csv("../data/BreakingNewsLevels.csv")
-    df2 = pd.read_csv("../data/huggingface_cochrane_dataset.csv")
-    df3 = pd.read_csv("../data/NewsInLevels_dataset_TextSimplification.csv")
-    df4 = pd.read_csv("../data/wiki_large.csv")
-    df5 = pd.read_csv("../data/wiki_small.csv")
+    # Read data ---------------------------------------------------------------------
+    ## Setup data location (If GCP, pass the loc using gs://)
+    loc = "./data/"
+
+    print("Loading data...")
+    df1 = pd.read_csv(loc + "BreakingNewsLevels.csv")
+    df2 = pd.read_csv(loc + "huggingface_cochrane_dataset.csv")
+    df3 = pd.read_csv(loc + "NewsInLevels_dataset_TextSimplification.csv")
+    df4 = pd.read_csv(loc + "wiki_large.csv")
+    df5 = pd.read_csv(loc + "wiki_small.csv")
+    print("Done.\n")
+
+    # Concat dataframe --------------------------------------------------------------
+
+    print("Concat data...")
 
     ## Data source: BreakingNewsenglish.com
-    df1a = df1[['text in level 1', 'text in level 2']].rename(columns={'text in level 1': 'source', 'text in level 2': 'target'})
-    df1b = df1[['text in level 1', 'text in level 3']].rename(columns={'text in level 1': 'source', 'text in level 3': 'target'})
-    df1c = df1[['text in level 2', 'text in level 3']].rename(columns={'text in level 2': 'source', 'text in level 3': 'target'})
+    df1a = df1[['text in level 3', 'text in level 2']].rename(columns={'text in level 3': 'source', 'text in level 2': 'target'})
+    df1a = df1a.assign(source_level = 3, target_level_og = 2)
+    df1b = df1[['text in level 3', 'text in level 1']].rename(columns={'text in level 3': 'source', 'text in level 1': 'target'})
+    df1b = df1b.assign(source_level_og = 3, target_level_og = 1)
+    df1c = df1[['text in level 2', 'text in level 1']].rename(columns={'text in level 2': 'source', 'text in level 1': 'target'})
+    df1c = df1c.assign(source_level_og = 2, target_level_og = 1)
 
     df1 = pd.concat([df1a, df1b, df1c], axis=0, ignore_index=True)
+    df1['data_source'] = 'BreakingNewsEnglish'
 
     ## Data source: Huggingface
     df2 = df2[["source","target"]]
+    df2['source_level_og'] = None
+    df2['target_level_og'] = None
+    df2['data_source'] = 'HuggingFace'
 
     ## Data source: News in levels
     pivoted_df = df3.pivot(index='level_url', columns='level', values='text').reset_index()
     pivoted_df.columns = ['id', 'text in level 1', 'text in level 2', 'text in level 3']
 
-    df3a = pivoted_df[['text in level 1', 'text in level 2']].rename(columns={'text in level 1': 'source', 'text in level 2': 'target'})
-    df3b = pivoted_df[['text in level 1', 'text in level 3']].rename(columns={'text in level 1': 'source', 'text in level 3': 'target'})
-    df3c = pivoted_df[['text in level 2', 'text in level 3']].rename(columns={'text in level 2': 'source', 'text in level 3': 'target'})
+    df3a = pivoted_df[['text in level 3', 'text in level 2']].rename(columns={'text in level 3': 'source', 'text in level 2': 'target'})
+    df3a = df3a.assign(source_level_og = 3, target_level_og = 2)
+    df3b = pivoted_df[['text in level 3', 'text in level 1']].rename(columns={'text in level 3': 'source', 'text in level 1': 'target'})
+    df3b = df3b.assign(source_level_og = 3, target_level_og = 1)
+    df3c = pivoted_df[['text in level 2', 'text in level 1']].rename(columns={'text in level 2': 'source', 'text in level 1': 'target'})
+    df3c = df3c.assign(source_level_og = 2, target_level_og = 1)
 
     df3 = pd.concat([df3a, df3b, df3c], axis=0, ignore_index=True)
+    df3['data_source'] = 'NewsInLevels'
 
     ## Data Source: Wiki
-    df4 = df4[["source","target"]]
-    df5 = df5[["source","target"]]
+    df4 = df4[["source","target"]] ## large
+    df4['source_level_og'] = None
+    df4['target_level_og'] = None
+    df4['data_source'] = 'WikiLarge'
 
-    maindf = pd.concat([df1, df2, df3, df4, df5], axis=0, ignore_index=True)
-    maindf.reset_index(drop=True, inplace=True)
+    df5 = df5[["source","target"]] ## small
+    df5['source_level_og'] = None
+    df5['target_level_og_og'] = None
+    df5['data_source'] = 'WikiSmall'
 
-    src = maindf[["source"]].rename(columns={'source': 'text'})
-    dst = maindf[["target"]].rename(columns={'target': 'text'})
+    ## Add more data sources later .....
+
+
+
+
+
+    ## Concat all
+    raw_df = pd.concat([df1, df2, df3, df4, df5], axis=0, ignore_index=True)
+    raw_df.reset_index(drop=True, inplace=True)
+
+    raw_df['data_type'] = 'text_simplification'
+    raw_df['source_level_cefr'] = None
+    raw_df['target_level_cefr'] = None
+
+    id_column = [f"TS{str(i).zfill(9)}" for i in range(1, len(raw_df) + 1)]
+    raw_df['id'] = id_column
+
+    print("Done.\n")
+
+    ## Save intermediate dataframe before CEFR classification
+    if(1):
+
+        print("Saving raw data...")
+        raw_df.to_csv(loc + "raw_data.csv", index=False)
+
+        ## TODO: Save pickle files
+        # with open(loc+'raw_data.pkl', 'wb') as f:
+        #     pickle.dump(raw_df, f)
+        print("Done.\n")
+
+        
+
+    if(0):
+        print("Load raw data...")
+        with open(loc+'raw_data.pkl', 'rb') as f:
+            raw_df = pickle.load(f)
+
+        print("Done.\n")
+
     
-    print('Preprocessing the data...')
-    preprocessor = preprocessing_pipeline()
-    src1 = preprocessor.fit_transform(src)
-    dst1 = preprocessor.fit_transform(dst)
+    # CEFR Classification --------------------------------------------------------
+    ## Col: source  |  source_level_og  | source_level_cefr  |  target  |  target_level_og  |  target_level_cefr 
+    
+    print("Adding CEFR labels...")
+    
+    labelled_df = cefr_classifier(raw_df)
 
-    print("Preprocessing completed.")
+    print("Done.\n")
 
-    finaldf = src1[["text"]].rename(columns={'text':'source'})
-    finaldf["target"] = dst1
+    if(1):
 
-    finaldf.to_csv("../data/train_data.csv", index=False)
+        print("Saving labelled data...")
+        ## TODO: Save pickle files
+        # with open(loc+'labelled_data.pkl', 'wb') as f:
+        #     pickle.dump(labelled_df, f)
+        print("Done.\n")
+
+
+    # Prepare for training -------------------------------------------------------
+    ## 
+    ## Select og level if available, else cefr label. Final 4 cols for training
+
+    param['labels'] = "og" ## "cefr"
+
+    if param['labels'] == "og":
+        
+        labelled_df['source_level'] = labelled_df['source_level_og'].fillna(labelled_df['source_level_cefr'])
+        labelled_df['target_level'] = labelled_df['target_level_og'].fillna(labelled_df['target_level_cefr'])
+        
+        train_df = labelled_df[['source','source_level','target','target_level']]
+
+    else:
+
+        labelled_df['source_level'] = labelled_df['source_level_cefr'].fillna(labelled_df['source_level_og'])
+        labelled_df['target_level'] = labelled_df['target_level_cefr'].fillna(labelled_df['target_level_og'])
+        
+        train_df = labelled_df[['source','source_level','target','target_level']]
+
+    
+    if(1):
+
+        print("Saving train data...")
+
+        train_df.to_csv(loc + "train_data.csv", index=False)
+
+        ## TODO: Save pickle files
+        # with open(loc+'train_data.pkl', 'wb') as f:
+        #     pickle.dump(train_df, f)
+        
+        print("Done.\n")
+
+
+
+
+
+
+
+
+    
+
+    
+
