@@ -224,7 +224,7 @@ if __name__ == '__main__':
 
     ## Data source: BreakingNewsenglish.com
     df1a = df1[['text in level 3', 'text in level 2']].rename(columns={'text in level 3': 'source', 'text in level 2': 'target'})
-    df1a = df1a.assign(source_level = 3, target_level_og = 2)
+    df1a = df1a.assign(source_level_og = 3, target_level_og = 2)
     df1b = df1[['text in level 3', 'text in level 1']].rename(columns={'text in level 3': 'source', 'text in level 1': 'target'})
     df1b = df1b.assign(source_level_og = 3, target_level_og = 1)
     df1c = df1[['text in level 2', 'text in level 1']].rename(columns={'text in level 2': 'source', 'text in level 1': 'target'})
@@ -261,7 +261,7 @@ if __name__ == '__main__':
 
     df5 = df5[["source","target"]] ## small
     df5['source_level_og'] = None
-    df5['target_level_og_og'] = None
+    df5['target_level_og'] = None
     df5['data_source'] = 'WikiSmall'
 
     ## Add more data sources later .....
