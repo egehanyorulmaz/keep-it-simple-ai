@@ -14,10 +14,30 @@ def bionic_read(text):
         word_length = len(word)
         half_length = word_length // 2
 
-        formatted_word = f"**{word[:half_length]}**{word[half_length:]}"
+        # If the word has an even number of characters, we don't want any overlap in the bolding
+        if word_length % 2 == 0:
+            formatted_word = f"**{word[:half_length]}**{word[half_length:]}"
+        # If the word has an odd number of characters, the middle character should be bolded too
+        else:
+            formatted_word = f"**{word[:half_length+1]}**{word[half_length+1:]}"
+            
         formatted_words.append(formatted_word)
 
-    return ' '.join(formatted_words).replace('****', ' ')
+    return ' '.join(formatted_words)
+
+def render_markdown_in_box(content):
+    box_style = """
+        display: block;
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        overflow-y: scroll;
+        white-space: pre-wrap;
+    """
+    st.markdown(f"<div style='{box_style}'>{content}</div>", unsafe_allow_html=True)
+
 
 # Page setup
 st.set_page_config(
@@ -33,21 +53,24 @@ st.title('KeepItSimple-AI')
 
     
 # Reading levels
-col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
+col1, col2, col3, col4 = st.columns(4)
 
 
 level_options = ['Elementary Level', 'Middle school Level', 'High School Level']
 
 with col1:
     st.write("Readability modes:")
-    selected_level = st.radio("", level_options, key="reading_level")
+    selected_level = st.radio("", level_options, key="reading_level",
+                              label_visibility="collapsed")
 
 
 # Dropdown for Learning Disabilities / Reading Type
-with col7:
-    reading_type = st.selectbox("Learning Disabilities", ['Default', 'Dyslexia', 'Hyperlexia', 'Surface Dyslexia', 
+with col2:
+    st.write("Learning disabilities:")
+    reading_type = st.selectbox("", ['Default', 'Dyslexia', 'Hyperlexia', 'Surface Dyslexia', 
                                                             'Double Deficit Dyslexia', 'Ocular Motor Deficit', 
-                                                            'ADHD (Bionic Reading)'])
+                                                            'ADHD (Bionic Reading)'],
+                              label_visibility="collapsed")
 
 
 # Side by side input and output text areas
@@ -55,7 +78,10 @@ col8, col9 = st.columns(2)
 
 with col8:
     st.write('Original Text:')
-    user_input = st.text_area("","Enter or paste your text here to simplify...", height=200, key="input_text_area")
+    user_input = st.text_area("","Enter or paste your text here to simplify...", 
+                              height=200, 
+                              key="input_text_area",
+                              label_visibility = "collapsed")
 
     # CEFR Level Prediction
     api_url_cefr = 'http://localhost:5000/api/data'
@@ -83,4 +109,5 @@ with col8:
 
 with col9:
     st.write('Simplified Text:')
-    st.text_area("",simplified_text, height=200, key = "output_text_area")
+    # st.text_area("",simplified_text, height=200, key = "output_text_area")
+    st.markdown(simplified_text)
