@@ -163,3 +163,5 @@ cython_debug/
 #.idea/
 streamlit_app/model/tf_model.preproc
 *.csv
+streamlit_app/model/tf_model.h5
+text_simplification/read_data.ipynb
