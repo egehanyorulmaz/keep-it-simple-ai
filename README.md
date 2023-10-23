@@ -9,12 +9,22 @@ To develop an AI tool designed to make written content more accessible for every
 ### PROJECT PIPELINE
 
 
-### MODEL + VISUALIZATIONS
+### MODELS + VISUALIZATIONS
+#### _CEFR Classification Model_
 
-### SCRAPER SOURCES
+#### _Text Simplification Model_
+
+### DATA SOURCES
+- CEFR - Kaggle
+  
+#### _Scraping Sources_
 - OneStopEnglishCorpus Dataset
 - Newsela Corpus Dataset
-- 
+- NewsInLevels
+
+  #### _Crawlers_
+
+
 
 
 ### EDA
