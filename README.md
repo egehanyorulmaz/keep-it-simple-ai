@@ -8,11 +8,12 @@ To develop an AI tool designed to make written content more accessible for every
 
 ### PROJECT PIPELINE
 
-
 ### MODELS + VISUALIZATIONS
 #### _CEFR Classification Model_
+Classifies a given text into one of three complexity levels: Elementary, Intermediate, and Advanced. 
 
 #### _Text Simplification Model_
+Simplifies a given text from a specified input level to a target level. 
 
 ### DATA SOURCES
 - CEFR - Kaggle
@@ -22,11 +23,6 @@ To develop an AI tool designed to make written content more accessible for every
 - Newsela Corpus Dataset
 - NewsInLevels
 
-  #### _Crawlers_
-
-
-
+#### _Crawlers_
 
 ### EDA
-
-
