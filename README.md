@@ -1,10 +1,11 @@
-# KeepItSimple: Making Information Accessible to All
+# KeepItSimple 
+Making Information Accessible
 
-## Keep it Simple is an AI tool designed to make written information more accessible for everyone, whether you're new to English, a young learner, or someone who faces challenges with reading. 
-Our tool uses cutting-edge technology to transform text into a more readable, understandable, and visually accessible format, ensuring that information is within reach for all.  
+Keep it Simple is an AI tool designed to make written information more accessible for everyone, whether you're new to English, a young learner, or someone who faces challenges with reading. Our tool uses cutting-edge technology to transform text into a more readable, understandable, and visually accessible format, ensuring that information is within reach for all.  
 
-Our AI-driven solution streamlines content, ensuring that it's not only accessible but also comprehensible, empowering individuals of all backgrounds and abilities to access the knowledge they need. We aim to make ## the digital realm more inclusive and information more easily digestible. Welcome to the future of digital accessibility.
+Our AI-driven solution streamlines content, ensuring that it's not only accessible but also comprehensible, empowering individuals of all backgrounds and abilities to access the knowledge they need. 
 
+We aim to make the digital realm more inclusive and information more easily digestible. Welcome to the future of digital accessibility.
 
 ## Overview
 KeepItSimple is a cutting-edge tool that conditionally simplifies any provided text to a user-specified readability level. Leveraging the power of Large Language Models (LLMs) and specifically fine-tuning on Llama 2 models with various capacities, our tool aims to make content more accessible to everyone.
