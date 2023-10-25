@@ -1,17 +1,25 @@
 # KeepItSimple 
-
 ### Making Information Accessible
 
-Keep it Simple is an AI tool designed to make written information more accessible for everyone, whether you're new to English, a young learner, or someone who faces challenges with reading. Our tool uses cutting-edge technology to transform text into a more readable, understandable, and visually accessible format, ensuring that information is within reach for all.  
+Keep it Simple is an AI tool designed to make written information more accessible for everyone, whether you're new to English, a young learner, or someone who faces challenges with reading due to learning diabilities. Our tool uses cutting-edge technology to transform text into a more readable, understandable, and visually accessible format, ensuring that information is within reach for everyone.  
 
 ### Pioneering Digital Accessibility in AI
+
+**_“For most people, technology makes things easier. But for people with disabilities, technology makes things possible.”_– Mary Pat Radabaugh** 
 
 Our AI-driven solution streamlines content, ensuring that it's not only accessible but also comprehensible, empowering individuals of all backgrounds and abilities to access the knowledge they need. 
 
 We aim to make the digital realm more inclusive and information more easily digestible. Welcome to the future of digital accessibility.
 
-## Overview
-KeepItSimple is a cutting-edge tool that conditionally simplifies any provided text to a user-specified readability level. Leveraging the power of Large Language Models (LLMs) and specifically fine-tuning on Llama 2 models with various capacities, our tool aims to make content more accessible to everyone.
+## Project Overview
+1. Text Readability Classification: Classify the inputted text to be one of three [CEFR levels](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions
+): Beginner, Intermediate, and Advanced. 
+2. Simplify Text: Readers can choose the text to be simplified to either Beginner or Intermediate levels.
+3. Inclusivity for new learners and those with learning disorders:
+   - Complex material broken down into digestible portions
+   - Reading formats that allow for easier reading, including Bionic Reading
+   - Text-to-speech for comprehension
+4. Seamless integration: User-friendly browser
 
 ## Key Features
 - **Conditional Text Simplification**: Adjust the readability level of any given text to either Elementary, Intermediate, or Advanced.
