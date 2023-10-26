@@ -29,7 +29,7 @@ We aim to make the digital realm more inclusive and information more easily dige
 
 ---
 ## 1. Project Overview
-1. Text Readability Classification: Classify the inputted text to be one of three [CEFR levels](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions
+1. Text Readability Classification: Classify the inputted text to be one of three [Common European Framework of Reference for Languages (CEFR) levels](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions
 ): Beginner, Intermediate, and Advanced. 
 2. Simplify Text: Readers can choose the text to be simplified to either Beginner or Intermediate levels.
 3. Inclusivity for new learners and those with learning disorders:
@@ -41,12 +41,21 @@ We aim to make the digital realm more inclusive and information more easily dige
 ## 2. Data
 
 ## 3. AI Model: Clasifier + Simplifier 
+In the domain of language learning and content adaptation, the ability to classify and simplify texts according to language proficiency levels is essential. 
+Below, we present the modeling designed to classify texts into one of three predefined CEFR levels—Basic, Intermediate, and Advanced—and subsequently simplifies the text according to the target level. The modeling operates in two main components: a text classifier and a text simplifier. The classifier uses a fine-tuned ktrain BERT model, while the simplifier is based on variants of the llama-2 language model. We demonstrate the efficiency and accuracy of the tool in both classification and simplification tasks.
 
-- **AI-Powered**: Utilizes the Llama 2 series models including:
-    - Llama 2 7b
-    - Llama 2 chat 7b
-    - Llama 2 13b
-    - Llama 2 chat 13b
+### 3.1 Text Classifier
+**3.1.1 Model Selection and Training**
+For the text classification component, we employed the ktrain BERT (Bidirectional Encoder Representations from Transformers) model, a sequence-to-sequence model known for its efficacy in handling natural language processing tasks. The model was fine-tuned on a dataset comprising texts labeled with CEFR levels. The importance of accurate labeling cannot be overstated, as it ensures the model's effectiveness in classifying texts correctly.
+**3.1.2 Label Embedding**
+To enhance the model's performance, the language level was embedded directly into the prompt. This approach ensures that the classifier is not just categorizing text but is contextually aware of the desired simplification level. Labels embedded in the prompts were then fed to the fine-tuned language model for classification.
+
+### 3.2 Text Simplifier
+**3.2.1 Model Selection**
+For the text simplification task, we selected the llama-2 language model. We evaluated four variants of the llama-2 model: the 7B and 13B standard models, and the Chat model variants with 7B and 13B configurations.
+**3.2.3 Fine-Tuning with llora and qlora**
+For fine-tuning, we utilized llora and qlora techniques. Qlora notably enhanced the processing speed and significantly reduced the resources needed for text simplification without compromising quality.
+
 
 ## 4. Model Evaluation
 For the robust evaluation of the tool's performance, we've incorporated several methods:
