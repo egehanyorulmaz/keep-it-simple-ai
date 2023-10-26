@@ -1,5 +1,8 @@
 # KeepItSimple: AI-Powered Text Simplification Tool
 
+### Making Information Accessible
+Keep it Simple is an AI tool designed to make written information more accessible for everyone, whether you're new to English, a young learner, or someone who faces challenges with reading due to learning diabilities. Our tool uses cutting-edge technology to transform text into a more readable, understandable, and visually accessible format, ensuring that information is within reach for everyone.  
+
 ## Overview
 KeepItSimple is a cutting-edge tool that conditionally simplifies any provided text to a user-specified readability level. Leveraging the power of Large Language Models (LLMs) and specifically fine-tuning on Llama 2 models with various capacities, our tool aims to make content more accessible to everyone.
 
