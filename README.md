@@ -1,5 +1,4 @@
-# KeepItSimple      <img width="100" alt="Screenshot 2023-10-25 at 8 06 10 PM" src="https://github.com/AnkitaNambiar/keep-it-simple-ai/assets/105748980/bce6a2e9-9c9b-429d-b9e5-039e637eb4f0">
-
+# KeepItSimple
 
 ### Making Information Accessible
 Keep it Simple is an AI tool designed to make written information more accessible for everyone, whether you're new to English, a young learner, or someone who faces challenges with reading due to learning disabilities. Our tool uses cutting-edge technology to transform text into a more readable, understandable, and visually accessible format, ensuring that information is within reach for everyone.  
@@ -48,8 +47,6 @@ We aim to make the digital realm more inclusive and information more easily dige
     - Llama 2 chat 7b
     - Llama 2 13b
     - Llama 2 chat 13b
-- **Cloud Deployment**: Efficiently deployed on GCP servers ensuring optimal performance and scalability.
-- **Interactive UI**: A user-friendly interface developed using Streamlit, enabling seamless interactions.
 
 ## 4. Model Evaluation
 For the robust evaluation of the tool's performance, we've incorporated several methods:
@@ -59,6 +56,10 @@ For the robust evaluation of the tool's performance, we've incorporated several 
 4. **Additional Indices**: Incorporation of other readability indices to comprehensively gauge the model's capability in conditional text simplification.
 
 ## 5. User Interface 
+Cloud Deployment: Efficiently deployed on GCP servers ensuring optimal performance and scalability.
+A user-friendly interface developed using Streamlit, enabling seamless interactions.
+
+Accessibility Features:
 
 ## 6. How to Use
 
