@@ -4,9 +4,9 @@
 Keep it Simple is an AI tool designed to make written information more accessible for everyone, whether you're new to English, a young learner, or someone who faces challenges with reading due to learning disabilities. Our tool uses cutting-edge technology to transform text into a more readable, understandable, and visually accessible format, ensuring that information is within reach for everyone.  
 
 ### Pioneering Digital Accessibility in AI
-                                      'For most people, technology makes things easier. 
-                           But for people with disabilities, technology makes things possible.'
-                                                – Mary Pat Radabaugh
+                                  'For most people, technology makes things easier. 
+                       But for people with disabilities, technology makes things possible.'
+                                            – Mary Pat Radabaugh
 
 Our AI-driven solution streamlines content, ensuring that it's not only accessible but also comprehensible, empowering individuals of all backgrounds and abilities to access the knowledge they need. 
 
@@ -42,19 +42,21 @@ We aim to make the digital realm more inclusive and information more easily dige
 
 ## 3. AI Model: Clasifier + Simplifier 
 In the domain of language learning and content adaptation, the ability to classify and simplify texts according to language proficiency levels is essential. 
-Below, we present the modeling designed to classify texts into one of three predefined CEFR levels—Basic, Intermediate, and Advanced—and subsequently simplifies the text according to the target level. The modeling operates in two main components: a text classifier and a text simplifier. The classifier uses a fine-tuned ktrain BERT model, while the simplifier is based on variants of the llama-2 language model. We demonstrate the efficiency and accuracy of the tool in both classification and simplification tasks.
+Below, we present the modeling designed to classify texts into one of three predefined CEFR levels—Basic, Intermediate, and Advanced—and subsequently simplifies the text according to the target level. The modeling operates in two main components: a text classifier and a text simplifier. The classifier uses a ktrain BERT model classification model, while the simplifier is based on variants of the llama-2 language model. We demonstrate the efficiency and accuracy of the tool in both classification and simplification tasks.
 
 ### 3.1 Text Classifier
 **3.1.1 Model Selection and Training**
 For the text classification component, we employed the ktrain BERT (Bidirectional Encoder Representations from Transformers) model, a sequence-to-sequence model known for its efficacy in handling natural language processing tasks. The model was fine-tuned on a dataset comprising texts labeled with CEFR levels. The importance of accurate labeling cannot be overstated, as it ensures the model's effectiveness in classifying texts correctly.
-**3.1.2 Label Embedding**
-To enhance the model's performance, the language level was embedded directly into the prompt. This approach ensures that the classifier is not just categorizing text but is contextually aware of the desired simplification level. Labels embedded in the prompts were then fed to the fine-tuned language model for classification.
 
 ### 3.2 Text Simplifier
-**3.2.1 Model Selection**
-For the text simplification task, we selected the llama-2 language model. We evaluated four variants of the llama-2 model: the 7B and 13B standard models, and the Chat model variants with 7B and 13B configurations.
-**3.2.3 Fine-Tuning with llora and qlora**
-For fine-tuning, we utilized llora and qlora techniques. Qlora notably enhanced the processing speed and significantly reduced the resources needed for text simplification without compromising quality.
+**3.2.1 Label Embedding**  \
+For model to be contextually aware of the language level of the provided text, the mentioned text classifier model is utilized to predict the language level of the user-inputted text , and subsequently embed the predicted source level as well as target level to the prompt. Labels embedded in the prompts were then fed to the Large Language Model for further fine-tuning on this newly introduced conditional down-stream task. 
+
+**3.2.2 Model Selection**  \
+For the text simplification task, we selected the llama-2 language model. We evaluated four variants of the llama-2 model: the 7B and 13B standard models, and the Chat model variants with 7B and 13B configurations. Several experiments are conducted across different large language models from the Open LLM Leaderboard. Llama-2 model is preferred for the superior capabilities among other language models, and more resource availability online.  
+
+**3.2.3 Fine-Tuning with llora and qlora**  \
+For fine-tuning, we utilized llora and qlora techniques. Qlora notably enhanced the processing speed and significantly reduced the resources needed for text simplification without compromising quality. 4-bit and 8-bit quantizations are chosen based on the limited resource availability.
 
 
 ## 4. Model Evaluation
