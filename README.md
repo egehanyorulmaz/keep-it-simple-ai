@@ -47,6 +47,8 @@ We structured our dataset such that the each text (from a set of same text at 3 
 ### 2.2 For fine tuning LLMs
 The aim of fine tuning is unidirectional where the model is to be trained to simplify ONLY. The data is structured such that from a set of same text at 3 readability levels, we create 3 data observations; the higher level text is treated as context and the lower level as target. The 3 generated subsamples pairs of context-target are 3-2, 3-1, and 2-1.
 
+Sources of data: NewsInLevels, OneStopEnglishCorpus, Wiki, and Newsela.
+
 ## 3. AI Model: Clasifier + Simplifier 
 In the domain of language learning and content adaptation, the ability to classify and simplify texts according to language proficiency levels is essential. 
 Below, we present the modeling designed to classify texts into one of three predefined CEFR levels—Basic, Intermediate, and Advanced—and subsequently simplifies the text according to the target level. The modeling operates in two main components: a text classifier and a text simplifier. The classifier uses a ktrain BERT model classification model, while the simplifier is based on variants of the llama-2 language model. We demonstrate the efficiency and accuracy of the tool in both classification and simplification tasks.
