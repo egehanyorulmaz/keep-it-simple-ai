@@ -39,6 +39,13 @@ We aim to make the digital realm more inclusive and information more easily dige
 4. Seamless integration: User-friendly browser
 
 ## 2. Data
+We collected the open source data available in multiple levels of readability as defined by the "Common European Framework of Reference for Languages (CEFR)". Its important to understand the structure of this data, which has the same text rewritten in different levels of readability. From the source of these datasets, there are 6 levels in which the text is available, but we map it to 3 major levels defined by CEFR as C-B-A corresponding to Advanced-Intermediate-Beginner.
+
+### 2.1 For training our CEFR models 
+We structured our dataset such that the each text (from a set of same text at 3 different readability levels) is treated as individual data point with labels in the set {C, B, A}. 
+
+### 2.2 For fine tuning LLMs
+The aim of fine tuning is unidirectional where the model is to be trained to simplify ONLY. The data is structured such that from a set of same text at 3 readability levels, we create 3 data observations; the higher level text is treated as context and the lower level as target. The 3 generated subsamples pairs of context-target are 3-2, 3-1, and 2-1.
 
 ## 3. AI Model: Clasifier + Simplifier 
 In the domain of language learning and content adaptation, the ability to classify and simplify texts according to language proficiency levels is essential. 
