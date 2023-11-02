@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+from json.decoder import JSONDecodeError
 
 # Simplify text function (dummy logic, can be enhanced)
 def simplify_text(text, reading_level):
@@ -84,7 +85,8 @@ with col8:
                               label_visibility = "collapsed")
 
     # CEFR Level Prediction
-    api_url_cefr = 'http://localhost:5000/api/data'
+    # api_url_cefr = 'http://localhost:5000/api/data'
+    api_url_cefr = 'http://82d1-34-135-199-34.ngrok-free.app/api/data'
     response = requests.post(api_url_cefr, json={"user_input": user_input})
     simplified_text = "" ## Intiate blank field
 
@@ -94,7 +96,14 @@ with col8:
 
     with col8c:
         if response.status_code == 200:
-            reading_level_prediction = response.json()
+            # reading_level_prediction = response.json()
+            try:
+                reading_level_prediction = response.json() 
+            except JSONDecodeError as e: 
+                print(response.status_code)
+                print(response.headers)
+                print(response.text)
+                raise
             if st.button('Simplify'):
                 simplified_text = simplify_text(user_input, selected_level)
                 if reading_type == 'ADHD (Bionic Reading)':

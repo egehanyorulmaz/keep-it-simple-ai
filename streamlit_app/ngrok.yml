@@ -1,0 +1,9 @@
+tunnels:
+  first_tunnel:
+    addr: 8501
+    proto: http
+    bind_tls: true
+  second_tunnel:
+    addr: 8502
+    proto: http
+    bind_tls: true
