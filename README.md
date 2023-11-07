@@ -54,10 +54,13 @@ In the domain of language learning and content adaptation, the ability to classi
 Below, we present the modeling designed to classify texts into one of three predefined CEFR levels—Basic, Intermediate, and Advanced—and subsequently simplifies the text according to the target level. The modeling operates in two main components: a text classifier and a text simplifier. The classifier uses a ktrain BERT model classification model, while the simplifier is based on variants of the llama-2 language model. We demonstrate the efficiency and accuracy of the tool in both classification and simplification tasks.
 
 ### 3.1 Text Classifier
+![image](https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/48676337/12558601-2e20-4bb3-90f7-d794df768865)
+
 **3.1.1 Model Selection and Training**
 For the text classification component, we employed the ktrain BERT (Bidirectional Encoder Representations from Transformers) model, a sequence-to-sequence model known for its efficacy in handling natural language processing tasks. The model was fine-tuned on a dataset comprising texts labeled with CEFR levels. The importance of accurate labeling cannot be overstated, as it ensures the model's effectiveness in classifying texts correctly.
 
 ### 3.2 Text Simplifier
+![image](https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/48676337/3ca34faa-2807-4dc5-927c-19e99975e69e)
 **3.2.1 Label Embedding**  \
 For model to be contextually aware of the language level of the provided text, the mentioned text classifier model is utilized to predict the language level of the user-inputted text , and subsequently embed the predicted source level as well as target level to the prompt. Labels embedded in the prompts were then fed to the Large Language Model for further fine-tuning on this newly introduced conditional down-stream task. 
 
@@ -74,6 +77,16 @@ For the robust evaluation of the tool's performance, we've incorporated several 
 2. **SMOG (Simple Measure of Gobbledygook)**: Assesses the years of education required to comprehend a piece of writing.
 3. **Flesch Reading Ease Score**: A test that rates text on a 100-point scale; the higher the score, the easier it is to understand the document.
 4. **Additional Indices**: Incorporation of other readability indices to comprehensively gauge the model's capability in conditional text simplification.
+
+   
+|      Model       | CEFR Accuracy |     SMOG     | Flesch Reading Ease | GPT-4 Judge         |
+| :--------------: | :-----------: | :----------: | :-----------------: | :-----------------: |
+| Llama-2-7b       | VAL1          |              |                     |                     |
+| Llama-2-13b      | VAL2          |              |                     |                     |
+| Llama-2-7b-chat  | VAL2          |              |                     |                     |
+| Llama-2-13b-chat | VAL2          |              |                     |                     |
+| Mistral-7b       | VAL2          |              |                     |                     |
+
 
 ## 5. User Interface 
 Cloud Deployment: Efficiently deployed on GCP servers ensuring optimal performance and scalability.
