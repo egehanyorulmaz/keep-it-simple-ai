@@ -3,7 +3,9 @@
 ### Making Information Accessible
 Keep it Simple is an AI tool designed to make written information more accessible for everyone, whether you're new to English, a young learner, or someone who faces challenges with reading due to learning disabilities. Our tool uses cutting-edge technology to transform text into a more readable, understandable, and visually accessible format, ensuring that information is within reach for everyone.  
 
-### Pioneering Digital Accessibility in AI
+### An AI-based Assistive Technology
+1 in 5 Individuals in the United States have learning and attention issues (U.S. Census Bureau, 2019). 
+
                                   'For most people, technology makes things easier. 
                        But for people with disabilities, technology makes things possible.'
                                             – Mary Pat Radabaugh
@@ -29,14 +31,16 @@ We aim to make the digital realm more inclusive and information more easily dige
 
 ---
 ## 1. Project Overview
-1. Text Readability Classification: Classify the inputted text to be one of three [Common European Framework of Reference for Languages (CEFR) levels](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions
-): Beginner, Intermediate, and Advanced. 
-2. Simplify Text: Readers can choose the text to be simplified to either Beginner or Intermediate levels.
-3. Inclusivity for new learners and those with learning disorders:
-   - Complex material broken down into digestible portions
+1. Text Classification: Classify the inputted text to be one of three [Common European Framework of Reference for Languages (CEFR) levels](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions
+): Beginner, Intermediate, and Advanced.
+
+<img width="337" alt="Screenshot 2023-11-06 at 6 47 42 PM" src="https://github.com/AnkitaNambiar/keep-it-simple-ai/assets/105748980/a7beabe5-fc98-48bb-bd88-67f9e96daeab">
+
+2. Text Simplification: Simplify inputted text to a less complex level
+4. Inclusivity for new learners and those with learning disorders:
    - Reading formats that allow for easier reading, including Bionic Reading
    - Text-to-speech for comprehension
-4. Seamless integration: User-friendly browser
+   - ‘Only Safe Text’ Option 
 
 ## 2. Data
 We collected the open source data available in multiple levels of readability as defined by the "Common European Framework of Reference for Languages (CEFR)". Its important to understand the structure of this data, which has the same text rewritten in different levels of readability. From the source of these datasets, there are 6 levels in which the text is available, but we map it to 3 major levels defined by CEFR as C-B-A corresponding to Advanced-Intermediate-Beginner.
@@ -49,9 +53,11 @@ The aim of fine tuning is unidirectional where the model is to be trained to sim
 
 Sources of data: NewsInLevels, OneStopEnglishCorpus, Wiki, and Newsela.
 
-## 3. AI Model: Clasifier + Simplifier 
+## 3. AI Model: Safety Check + Classifier + Simplifier 
 In the domain of language learning and content adaptation, the ability to classify and simplify texts according to language proficiency levels is essential. 
-Below, we present the modeling designed to classify texts into one of three predefined CEFR levels—Basic, Intermediate, and Advanced—and subsequently simplifies the text according to the target level. The modeling operates in two main components: a text classifier and a text simplifier. The classifier uses a ktrain BERT model classification model, while the simplifier is based on variants of the llama-2 language model. We demonstrate the efficiency and accuracy of the tool in both classification and simplification tasks.
+Below, we present the modeling designed to classify texts into one of three predefined CEFR levels—Basic, Intermediate, and Advanced—and subsequently simplify the text according to the target level. The modeling operates in two main components: a text classifier and a text simplifier. The classifier uses a ktrain BERT model classification model, while the simplifier is based on variants of the llama-2 language model. We demonstrate the efficiency and accuracy of the tool in both classification and simplification tasks.
+
+<img width="808" alt="Screenshot 2023-11-06 at 6 47 00 PM" src="https://github.com/AnkitaNambiar/keep-it-simple-ai/assets/105748980/d69e75d8-34ca-4c93-8a1d-96db312538f9">
 
 ### 3.1 Text Classifier
 ![image](https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/48676337/12558601-2e20-4bb3-90f7-d794df768865)
@@ -62,7 +68,7 @@ For the text classification component, we employed the ktrain BERT (Bidirectiona
 ### 3.2 Text Simplifier
 ![image](https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/48676337/3ca34faa-2807-4dc5-927c-19e99975e69e)
 **3.2.1 Label Embedding**  \
-For model to be contextually aware of the language level of the provided text, the mentioned text classifier model is utilized to predict the language level of the user-inputted text , and subsequently embed the predicted source level as well as target level to the prompt. Labels embedded in the prompts were then fed to the Large Language Model for further fine-tuning on this newly introduced conditional down-stream task. 
+For model to be contextually aware of the language level of the provided text, the mentioned text classifier model is utilized to predict the language level of the user-inputted text, and subsequently embed the predicted source level as well as target level to the prompt. Labels embedded in the prompts were then fed to the Large Language Model for further fine-tuning on this newly introduced conditional down-stream task. 
 
 **3.2.2 Model Selection**  \
 For the text simplification task, we selected the llama-2 language model. We evaluated four variants of the llama-2 model: the 7B and 13B standard models, and the Chat model variants with 7B and 13B configurations. Several experiments are conducted across different large language models from the Open LLM Leaderboard. Llama-2 model is preferred for the superior capabilities among other language models, and more resource availability online.  
