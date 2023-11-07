@@ -78,9 +78,9 @@ For the robust evaluation of the tool's performance, we've incorporated several 
 3. **Flesch Reading Ease Score**: A test that rates text on a 100-point scale; the higher the score, the easier it is to understand the document.
 4. **Additional Indices**: Incorporation of other readability indices to comprehensively gauge the model's capability in conditional text simplification.
 
-
+#### GPT-4 as a Judge of Model Responses
 ![image](https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/48676337/cb9103c1-98ec-4326-a8e0-96cd6c75f26a)
-   
+
 |      Model       | CEFR Accuracy |     SMOG     | Flesch Reading Ease |      GPT-4 Judge    |
 | :--------------: | :-----------: | :----------: | :-----------------: | :-----------------: |
 | Llama-2-7b       | VAL1          |              |                     |                     |
