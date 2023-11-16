@@ -194,7 +194,7 @@ with col9:
     
     render_markdown_in_box_output(print_text, font_size, font_type, text_color, bg_color)
     
-    # Play audio if available in session state
+    # Text2Speech
     if 'sound_file' in st.session_state and st.session_state.sound_file:
         st.audio(st.session_state.sound_file, format='audio/mp3')
 
