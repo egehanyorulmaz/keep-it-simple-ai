@@ -169,7 +169,7 @@ with col8:
                 if reading_type == 'Bionic Reading':
                     st.session_state.simplified_text = bionic_read(st.session_state.simplified_text)
                     
-                # Convert text to speech
+                # Text2speech
                 st.session_state.sound_file = text_to_speech(text_for_speech)
          
     with col8a:
