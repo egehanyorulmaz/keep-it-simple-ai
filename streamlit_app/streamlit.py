@@ -192,7 +192,6 @@ with col9:
     text_color = st.session_state.custom_view_settings['text_color']
     bg_color = st.session_state.custom_view_settings['bg_color']
     
-    # render_markdown_in_box_output(print_text)
     render_markdown_in_box_output(print_text, font_size, font_type, text_color, bg_color)
     
     # Play audio if available in session state
