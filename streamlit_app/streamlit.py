@@ -7,7 +7,6 @@ import re
 from reportlab.platypus import Paragraph, SimpleDocTemplate
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.styles import ParagraphStyle
-
 import markdown
 import io
 from reportlab.pdfgen import canvas
