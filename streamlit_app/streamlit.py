@@ -179,13 +179,14 @@ with col9:
     st.markdown(f"<p style='{heading_style}'>  SIMPLIFIED TEXT</p>", unsafe_allow_html=True)
     print_text = st.session_state.simplified_text
     print_text = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', print_text)
-    
+
+    # Sidebar #Display Adjustment
     with st.sidebar.expander("Customize Simplified Text View"):
         st.session_state.custom_view_settings['font_size'] = st.slider('Font Size', 12, 24, 16)
         st.session_state.custom_view_settings['font_type'] = st.selectbox('Font Type', ['Arial', 'Courier New', 'Georgia', 'Times New Roman', 'Verdana'])
         st.session_state.custom_view_settings['text_color'] = st.color_picker('Text Color', '#000000')
         st.session_state.custom_view_settings['bg_color'] = st.color_picker('Background Color', '#FFFFFF')
-        
+
     font_size = st.session_state.custom_view_settings['font_size']
     font_type = st.session_state.custom_view_settings['font_type']
     text_color = st.session_state.custom_view_settings['text_color']
