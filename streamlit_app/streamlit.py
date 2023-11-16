@@ -148,13 +148,12 @@ with col8:
     response = requests.post(api_url_cefr, json={"user_input": user_input})
     simplified_text = "" 
     text_for_speech = ""
-    text_simplified = False 
+    text_simplified = False
+    
     # Initialize reading_level_prediction with a default value
     reading_level_prediction = {"CEFR Level": "Unknown"}
 
-
     col8a, col8b = st.columns([2,1])
-
     with col8b:
         if response.status_code == 200:
             reading_level_prediction = response.json()
@@ -171,7 +170,6 @@ with col8:
                     
                 # Text2speech
                 st.session_state.sound_file = text_to_speech(text_for_speech)
-         
     with col8a:
         st.write(f"**{reading_level_prediction['CEFR Level']} Level**")
     
