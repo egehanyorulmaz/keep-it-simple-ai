@@ -204,5 +204,4 @@ with col9:
         if st.session_state.simplified_text:
             generate_pdf_download_link(st.session_state.simplified_text)
             
-           
     
