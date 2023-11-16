@@ -67,6 +67,7 @@ def render_markdown_in_box_output(content, font_size=16, font_type='Arial', text
 # Functions for Download PDF Button
 def markdown_to_html(markdown_text):
     return markdown.markdown(markdown_text)
+
 def convert_html_to_pdf(html_text, pdf_filename):
     buffer = io.BytesIO()
     doc = SimpleDocTemplate(buffer)
@@ -75,6 +76,7 @@ def convert_html_to_pdf(html_text, pdf_filename):
     doc.build(story)
     with open(pdf_filename, "wb") as f:
         f.write(buffer.getbuffer())
+        
 def generate_pdf_download_link(text, filename="output.pdf"):
     html_text = markdown_to_html(text)
     convert_html_to_pdf(html_text, filename)
@@ -118,7 +120,7 @@ with col1:
     st.markdown("""<br>""", unsafe_allow_html=True)
 
 
-# Dropdown for Learning Disabilities / Reading Type
+# Dropdown for Reading Mode
 with col2:
     st.markdown(f"<p style='{heading_style}'>MODE</p>", unsafe_allow_html=True)
     reading_type = st.selectbox("", ['Default', 'Bionic Reading'],
