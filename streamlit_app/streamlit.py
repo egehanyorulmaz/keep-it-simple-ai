@@ -14,7 +14,6 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.colors import HexColor
 import markdown2
-from json import JSONDecodeError
 
 # Simplify text function (dummy logic, can be enhanced)
 def simplify_text(text, reading_level):
