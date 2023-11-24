@@ -1,0 +1,6 @@
+authtoken: XXXX
+tunnels:
+    first_tunnel:
+        addr: 8081
+        proto: http
+        bind_tls: True
