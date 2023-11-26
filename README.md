@@ -1,6 +1,6 @@
-# KeepItSimple
+<div align="left">
+    <br><img width="600" alt="Screenshot 2023-11-26 at 3 12 14 PM" src="https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/498d4c75-788b-479d-b191-9549ca4d9a37">
 
-### Making Information Accessible
 Keep it Simple is an AI tool designed to make written information more accessible for everyone, whether you're new to English, a young learner, or someone who faces challenges with reading due to learning disabilities. Our tool uses cutting-edge technology to transform text into a more readable, understandable, and visually accessible format, ensuring that information is within reach for everyone.  
 
 ### An AI-based Assistive Technology
