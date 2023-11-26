@@ -14,9 +14,9 @@ Our AI-driven solution streamlines content, ensuring that it's not only accessib
 
 We aim to make the digital realm more inclusive and information more easily digestible. Welcome to the future of digital accessibility.
 
-![images](https://github.com/AnkitaNambiar/keep-it-simple-ai/assets/105748980/a4dbc3c9-c45c-4f8b-9fdd-81d756cb4340)
+![Project Logo]([https://user-images.githubusercontent.com/yourimageurl.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Faccessibilityspark.com%2Ften-reasons-you-should-get-the-web-accessibility-icon-on-your-website%2F&psig=AOvVaw27rzOTwt6bDsLpRb_aB1Gj&ust=1701122048051000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJikjM3T4oIDFQAAAAAdAAAAABAJ))
+
 ![download](https://github.com/AnkitaNambiar/keep-it-simple-ai/assets/105748980/2420e913-6615-4385-93e9-6b84d1f483fd)
-![images](https://github.com/AnkitaNambiar/keep-it-simple-ai/assets/105748980/9857a86a-f5bb-4b89-908b-bdb8cabfec74)
 
 ---
 ## Table of Contents
