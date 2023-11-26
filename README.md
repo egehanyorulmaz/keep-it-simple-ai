@@ -14,15 +14,12 @@ Our AI-driven solution streamlines content, ensuring that it's not only accessib
 
 We aim to make the digital realm more inclusive and information more easily digestible. Welcome to the future of digital accessibility.
 
-![Project Logo]([https://user-images.githubusercontent.com/yourimageurl.png](https://www.google.com/url?sa=i&url=https%3A%2F%2Faccessibilityspark.com%2Ften-reasons-you-should-get-the-web-accessibility-icon-on-your-website%2F&psig=AOvVaw27rzOTwt6bDsLpRb_aB1Gj&ust=1701122048051000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJikjM3T4oIDFQAAAAAdAAAAABAJ))
-
-![download](https://github.com/AnkitaNambiar/keep-it-simple-ai/assets/105748980/2420e913-6615-4385-93e9-6b84d1f483fd)
 
 ---
 ## Table of Contents
 1. Project Overview
 2. Data
-3. AI Model: Clasifier + Simplifier
+3. AI Model: Clasifier + Simplifier + Safety Check
 4. Model Evaluation 
 5. User Interface 
 6. How to Use
@@ -48,12 +45,12 @@ We collected the open source data available in multiple levels of readability as
 ### 2.1 For training our CEFR models 
 We structured our dataset such that the each text (from a set of same text at 3 different readability levels) is treated as individual data point with labels in the set {C, B, A}. 
 
-### 2.2 For fine tuning LLMs
+### 2.2 For fine-tuning LLMs
 The aim of fine tuning is unidirectional where the model is to be trained to simplify ONLY. The data is structured such that from a set of same text at 3 readability levels, we create 3 data observations; the higher level text is treated as context and the lower level as target. The 3 generated subsamples pairs of context-target are 3-2, 3-1, and 2-1.
 
 Sources of data: NewsInLevels, OneStopEnglishCorpus, Wiki, and Newsela.
 
-## 3. AI Model: Safety Check + Classifier + Simplifier 
+## 3. AI Model: Classifier + Simplifier + Safety Check
 In the domain of language learning and content adaptation, the ability to classify and simplify texts according to language proficiency levels is essential. 
 Below, we present the modeling designed to classify texts into one of three predefined CEFR levels—Basic, Intermediate, and Advanced—and subsequently simplify the text according to the target level. The modeling operates in two main components: a text classifier and a text simplifier. The classifier uses a ktrain BERT model classification model, while the simplifier is based on variants of the llama-2 language model. We demonstrate the efficiency and accuracy of the tool in both classification and simplification tasks.
 
