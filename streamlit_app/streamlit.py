@@ -15,7 +15,7 @@ from reportlab.lib.colors import HexColor
 import markdown2
 from json import JSONDecodeError
 
-# Simplify text function (dummy logic, can be enhanced)
+# Simplify text function
 def simplify_text(text, reading_level):
     return text  # No change currently
 
