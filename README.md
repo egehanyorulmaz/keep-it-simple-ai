@@ -1,25 +1,36 @@
 <div align="left">
     <br><img width="600" alt="Screenshot 2023-11-26 at 3 12 14 PM" src="https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/498d4c75-788b-479d-b191-9549ca4d9a37">
 
-Keep it Simple is an AI tool designed to make written information more accessible for everyone, whether you're new to English, a young learner, or someone who faces challenges with reading due to learning disabilities. Our tool uses cutting-edge technology to transform text into a more readable, understandable, and visually accessible format, ensuring that information is within reach for everyone.  
+Keep it Simple is an AI tool designed to simplify text into a more readable, understandable, and visually accessible format. 
+Made for everyone, whether you're new to English, a young learner, or someone who faces challenges with reading due to learning issues.
 
-### An AI-based Assistive Technology
-1 in 5 Individuals in the United States have learning and attention issues (U.S. Census Bureau, 2019). 
+---
+## An AI-based Assistive Technology
+
+65.6 million individuals in the United States have learning and attention issues (U.S. Census Bureau, 2019). This represents a significant portion of the population - 1 in 5 people - who struggle with tasks requiring sustained focus, such as reading extensive text. 
+
+This challenge is exacerbated in our digital age, where information is predominantly disseminated online.
+
+The increasing prevalence of learning and attention issues underscores the importance of developing effective technological aids. Historically, technology has played a pivotal role in assisting individuals with learning and attention difficulties. Notable examples include:
+- Spelling Check Tools
+- Text-to-Speech software
+- Reading Pens
+- Display Control options
+
+
+Building upon the insights gained from these technological advancements, we have developed an AI-driven solution. The goal is to create a tool that not only assists in overcoming the challenges posed by learning and attention issues but also enhances the overall learning experience for all users.
+
 
                                   'For most people, technology makes things easier. 
                        But for people with disabilities, technology makes things possible.'
                                             – Mary Pat Radabaugh
 
-Our AI-driven solution streamlines content, ensuring that it's not only accessible but also comprehensible, empowering individuals of all backgrounds and abilities to access the knowledge they need. 
-
-We aim to make the digital realm more inclusive and information more easily digestible. Welcome to the future of digital accessibility.
-
+We aim to make the digital realm more inclusive and information more easily digestible.
 
 ---
 ## Table of Contents
-1. Project Overview
+1. Our Goal
 2. Data
-3. AI Model: Clasifier + Simplifier + Safety Check
 4. Model Evaluation 
 5. User Interface 
 6. How to Use
@@ -27,6 +38,9 @@ We aim to make the digital realm more inclusive and information more easily dige
 8. More about Digital Accessibility 
 
 ---
+## Our Goal
+
+
 ## 1. Project Overview
 1. Text Classification: Classify the inputted text to be one of three [Common European Framework of Reference for Languages (CEFR) levels](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions
 ): Beginner, Intermediate, and Advanced.
@@ -39,6 +53,8 @@ We aim to make the digital realm more inclusive and information more easily dige
    - Text-to-speech for comprehension
    - ‘Only Safe Text’ Option 
 
+---
+
 ## 2. Data
 We collected the open source data available in multiple levels of readability as defined by the "Common European Framework of Reference for Languages (CEFR)". Its important to understand the structure of this data, which has the same text rewritten in different levels of readability. From the source of these datasets, there are 6 levels in which the text is available, but we map it to 3 major levels defined by CEFR as C-B-A corresponding to Advanced-Intermediate-Beginner.
 
@@ -49,6 +65,8 @@ We structured our dataset such that the each text (from a set of same text at 3 
 The aim of fine tuning is unidirectional where the model is to be trained to simplify ONLY. The data is structured such that from a set of same text at 3 readability levels, we create 3 data observations; the higher level text is treated as context and the lower level as target. The 3 generated subsamples pairs of context-target are 3-2, 3-1, and 2-1.
 
 Sources of data: NewsInLevels, OneStopEnglishCorpus, Wiki, and Newsela.
+
+---
 
 ## 3. AI Model: Classifier + Simplifier + Safety Check
 In the domain of language learning and content adaptation, the ability to classify and simplify texts according to language proficiency levels is essential. 
