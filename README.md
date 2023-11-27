@@ -2,23 +2,31 @@
 
 ![goals](pictures/header.png)
 
-Keep it Simple is an AI tool designed to simplify text into a more readable, understandable, and visually accessible format. 
-
-Made for everyone, whether you’re new to English, a young learner, or someone who faces challenges with reading due to learning issues.
+<div align="center">
+  Keep it Simple is an AI tool designed to simplify text into a more readable, understandable, and visually accessible format. Made for everyone, whether you’re new to English, a young learner, or someone who faces challenges with reading due to learning issues.
+</div>
 
 ---
-# Motivation behind Creating an Assistive Technology
+<h2 align="center">Motivation behind Creating an Assistive Technology</h1>
 
-![goals](pictures/motivation.png)
+<p align="center">
+  <img src="pictures/motivation.png" alt="goals" width="800" height="430">
+</p>
 
-Building upon the insights gained from these technological advancements, we have developed an AI-driven solution. 
+<div align="center">
+  Building upon the insights gained from these technological advancements, we have developed an AI-driven solution. <br><br>
+  The goal is to create a tool that not only assists in overcoming the challenges posed by learning and attention issues but also enhances the overall learning experience for all users. <br><br>
+  
+</div>
 
-The goal is to create a tool that not only assists in overcoming the challenges posed by learning and attention issues but also enhances the overall learning experience for all users.
+<p align="center">
+  <img src="pictures/quote.png" alt="goals" width="800" height="150">
+</p>
 
-![goals](pictures/quote.png)
+<div align="center">
+  We aim to make the digital realm more inclusive and information more easily digestible.<br><br>
 
-
-We aim to make the digital realm more inclusive and information more easily digestible.
+</div>
 
 ---
 # Table of Contents
@@ -34,7 +42,10 @@ We aim to make the digital realm more inclusive and information more easily dige
 ---
 # 1. Our Goals
 
-![goals](pictures/goals.png)
+<p align="center">
+  <img src="pictures/goals.png" alt="goals" width="800" height="390">
+</p>
+
 
 ---
 
@@ -46,7 +57,9 @@ These sources have the same text in multiple reading levels, which we define wit
 
 There are 6 CEFR levels, but we mapped our data to 3 major levels: CEFFR C-B-A corresponding to Advanced-Intermediate-Beginner.
 
-![goals](pictures/cefr.png)
+<p align="center">
+  <img src="pictures/cefr.png" alt="goals" width="600" height="200">
+</p>
 
 ---
 
@@ -54,11 +67,21 @@ There are 6 CEFR levels, but we mapped our data to 3 major levels: CEFFR C-B-A c
 
 Our model first classifies texts into the predefined CEFR levels and then simplifies the content to match the desired reading level. We also flag if a text has Unsafe Text, including profane language and hate speech.
 
+
+
 ![goals](pictures/model.png)
 
-![goals](pictures/safetycheck.png)
-![goals](pictures/classifier.png)
-![goals](pictures/simplifier.png)
+
+
+<p align="center">
+  <img src="pictures/safetycheck.png" alt="safetycheck" width="480" height="260">
+  <img src="pictures/classifier.png" alt="classifier" width="500" height="270">
+</p>
+
+<p align="center">
+  <img src="pictures/simplifier.png" alt="simplifier" width="750" height="350">
+</p>
+
 
 # 4. Model Evaluation
 For the robust evaluation of the tool’s performance, we’ve incorporated several methods:
