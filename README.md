@@ -19,7 +19,7 @@ We aim to make the digital realm more inclusive and information more easily dige
 
 ---
 # Table of Contents
-1. Our Goal
+1. Our Goals
 2. Data
 4. Model Evaluation 
 5. User Interface 
@@ -28,25 +28,23 @@ We aim to make the digital realm more inclusive and information more easily dige
 8. More about Digital Accessibility 
 
 ---
-## Our Goal
+# 1. Our Goals
 
-
-## 1. Project Overview
-1. Text Classification: Classify the inputted text to be one of three [Common European Framework of Reference for Languages (CEFR) levels](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions
-): Beginner, Intermediate, and Advanced.
-
-<img width="337" alt="Screenshot 2023-11-06 at 6 47 42 PM" src="https://github.com/AnkitaNambiar/keep-it-simple-ai/assets/105748980/a7beabe5-fc98-48bb-bd88-67f9e96daeab">
-
-2. Text Simplification: Simplify inputted text to a less complex level
-4. Inclusivity for new learners and those with learning disorders:
-   - Reading formats that allow for easier reading, including Bionic Reading
-   - Text-to-speech for comprehension
-   - ‘Only Safe Text’ Option 
+<img width="722" alt="Screenshot 2023-11-26 at 9 51 23 PM" src="https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/baa737a2-bd1d-4158-8565-59315000682d">
 
 ---
 
-## 2. Data
-We collected the open source data available in multiple levels of readability as defined by the "Common European Framework of Reference for Languages (CEFR)". Its important to understand the structure of this data, which has the same text rewritten in different levels of readability. From the source of these datasets, there are 6 levels in which the text is available, but we map it to 3 major levels defined by CEFR as C-B-A corresponding to Advanced-Intermediate-Beginner.
+# 2. Data
+
+We collected the open source data available in multiple levels of readability as defined by the [Common European Framework of Reference for Languages (CEFR)](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions).
+
+Its important to understand the structure of this data, which has the same text rewritten in different levels of readability. From the source of these datasets, there are 6 levels in which the text is available, but we map it to 3 major levels defined by CEFR as C-B-A corresponding to Advanced-Intermediate-Beginner.
+
+
+
+
+<img width="337" alt="Screenshot 2023-11-06 at 6 47 42 PM" src="https://github.com/AnkitaNambiar/keep-it-simple-ai/assets/105748980/a7beabe5-fc98-48bb-bd88-67f9e96daeab">
+
 
 ### 2.1 For training our CEFR models 
 We structured our dataset such that the each text (from a set of same text at 3 different readability levels) is treated as individual data point with labels in the set {C, B, A}. 
