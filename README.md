@@ -29,27 +29,26 @@
 </div>
 
 ---
-# Table of Contents
-1. Our Goals
-2. Data
-3. Model
-4. Model Evaluation 
-5. User Interface 
-6. Findings
-7. How to Use
-8. About Us
+## Table of Contents
+1. [Our Goals](#our-goals)
+2. [Data](#data-with-readability-levels)
+3. [Model](#our-ai-model-safety-check-%2B-classifier-%2B-simplifier)
+4. [Model Evaluation](#model-evaluation) 
+5. [User Interface](#user-interface) 
+6. [Findings](#findings)
+7. [How to Use](#how-to-use)
+8. [About Us](#about-us)
 
 ---
-# 1. Our Goals
+## 1. Our Goals
 
 <p align="center">
   <img src="pictures/goals.png" alt="goals" width="800" height="390">
 </p>
 
-
 ---
 
-# 2. Data In Different Reading Levels
+## 2. Data With Readability Levels
 
 We collected open source articles from '[News in Levels](https://www.newsinlevels.com/)' and 'Wikipedia'/ '[Simple Wikipedia](https://simple.wikipedia.org/wiki/),' as well as text from '[OneStopEnglish](https://github.com/nishkalavallabhi/OneStopEnglishCorpus)' research dataset. 
 
@@ -63,7 +62,7 @@ There are 6 CEFR levels, but we mapped our data to 3 major levels: CEFFR C-B-A c
 
 ---
 
-# 3. Our AI Model: Safety Check + Classifier + Simplifier
+## 3. Our AI Model: Safety Check + Classifier + Simplifier
 
 Our model first classifies texts into the predefined CEFR levels and then simplifies the content to match the desired reading level. We also flag if a text has Unsafe Text, including profane language and hate speech.
 
@@ -83,7 +82,7 @@ Our model first classifies texts into the predefined CEFR levels and then simpli
 </p>
 
 
-# 4. Model Evaluation
+## 4. Model Evaluation
 For the robust evaluation of the tool’s performance, we’ve incorporated several methods:
 1. **CEFR (Common European Framework of Reference for Languages)**: A readability index, trained on a dataset sourced from Kaggle. Using this, we generate labels for the produced text and juxtapose it against the ground truth from our evaluation set.
 2. **SMOG (Simple Measure of Gobbledygook)**: Assesses the years of education required to comprehend a piece of writing.
@@ -101,15 +100,15 @@ For the robust evaluation of the tool’s performance, we’ve incorporated seve
 | Llama-2-13b-chat | VAL2          |              |                     |                     |
 | Mistral-7b       | VAL2          |              |                     |                     |
 
-# 5. User Interface 
+## 5. User Interface 
 
 Accessibility Features:
 
-# 6. Findings
+## 6. Findings
 
 
 
-# 7. How to Use
+## 7. How to Use
 
 1. Access the tool via our web portal.
 2. Paste or type in the content you wish to simplify.
@@ -124,7 +123,7 @@ Accessibility Features:
 3. For local testing, run the Streamlit app.
 4. For deploying on your server, modify the necessary configuration settings.
 
-# 8. About Us
+## 8. About Us
 
 Team: 
 - Ankita Nambiar
