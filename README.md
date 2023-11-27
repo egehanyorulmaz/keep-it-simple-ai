@@ -55,7 +55,9 @@ Our model first classifies texts into the predefined CEFR levels and then simpli
 
 ![goals](pictures/model.png)
 
-
+![goals](pictures/safetycheck.png)
+![goals](pictures/classifier.png)
+![goals](pictures/simplifier.png)
 
 # 4. Model Evaluation
 For the robust evaluation of the tool’s performance, we’ve incorporated several methods:
@@ -80,6 +82,8 @@ For the robust evaluation of the tool’s performance, we’ve incorporated seve
 Accessibility Features:
 
 # 6. Findings
+
+
 
 # 7. How to Use
 
