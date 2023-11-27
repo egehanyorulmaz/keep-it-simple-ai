@@ -2,28 +2,30 @@
 
 ![goals](pictures/header.png)
 
-<div align="center">
+<div align=“center”>
   Keep it Simple is an AI tool designed to simplify text into a more readable, understandable, and visually accessible format. Made for everyone, whether you’re new to English, a young learner, or someone who faces challenges with reading due to learning issues.
 </div>
 
 ---
-<h2 align="center">Motivation behind Creating an Assistive Technology</h1>
+<h2 align=“center”>Motivation behind Creating an Assistive Technology</h1>
 
 <p align="center">
-  <img src="pictures/motivation.png" alt="goals" width="800" height="430">
+  <img src="pictures/motivation.png" alt="motivation" width="“800”" height="“430”">
 </p>
 
-<div align="center">
+
+<div align=“center”>
   Building upon the insights gained from these technological advancements, we have developed an AI-driven solution. <br><br>
   The goal is to create a tool that not only assists in overcoming the challenges posed by learning and attention issues but also enhances the overall learning experience for all users. <br><br>
   
 </div>
 
 <p align="center">
-  <img src="pictures/quote.png" alt="goals" width="800" height="150">
+  <img src="pictures/quote.png" alt="quote" width="800" height= "150">
 </p>
 
-<div align="center">
+
+<div align=“center”>
   We aim to make the digital realm more inclusive and information more easily digestible.<br><br>
 
 </div>
