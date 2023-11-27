@@ -7,16 +7,11 @@ Made for everyone, whether you’re new to English, a young learner, or someone 
 ---
 # Motivation behind Creating an Assistive Technology
 
-
-
-<img width=“885” alt=“Screenshot 2023-11-26 at 8 47 44 PM” src=“https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/ce42076a-3a5b-4cda-9e9f-3e04dd9db5d2”>
-
-
+![goals](pictures/motivation.png)
 
 Building upon the insights gained from these technological advancements, we have developed an AI-driven solution. The goal is to create a tool that not only assists in overcoming the challenges posed by learning and attention issues but also enhances the overall learning experience for all users.
 
-
-<img width=“878” alt=“Screenshot 2023-11-26 at 9 00 44 PM” src=“https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/607dcad5-48bb-43d9-8d90-3d14f11e8a0f”>
+![goals](pictures/quote.png)
 
 
 We aim to make the digital realm more inclusive and information more easily digestible.
@@ -25,6 +20,7 @@ We aim to make the digital realm more inclusive and information more easily dige
 # Table of Contents
 1. Our Goals
 2. Data
+3. Model
 4. Model Evaluation 
 5. User Interface 
 6. How to Use
@@ -38,27 +34,19 @@ We aim to make the digital realm more inclusive and information more easily dige
 
 ---
 
-# 2. Data
+# 2. Data In Different Reading Levels
 
-We collected the open source data available in multiple levels of readability as defined by the [Common European Framework of Reference for Languages (CEFR)](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions).
+We collected open source articles from '[News in Levels](https://www.newsinlevels.com/)' and 'Wikipedia'/ '[Simple Wikipedia](https://simple.wikipedia.org/wiki/),' as well as text from '[OneStopEnglish](https://github.com/nishkalavallabhi/OneStopEnglishCorpus)' research dataset. 
 
-It’s important to understand the structure of this data, which has the same text rewritten in different levels of readability. From the source of these datasets, there are 6 levels in which the text is available, but we map it to 3 major levels defined by CEFR as C-B-A corresponding to Advanced-Intermediate-Beginner.
+These sources have the same text in multiple reading levels, which we define with the [Common European Framework of Reference for Languages (CEFR)](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions).
 
-<img width=“337” alt=“Screenshot 2023-11-06 at 6 47 42 PM” src=“https://github.com/AnkitaNambiar/keep-it-simple-ai/assets/105748980/a7beabe5-fc98-48bb-bd88-67f9e96daeab”>
+There are 6 CEFR levels, but we mapped our data to 3 major levels: CEFFR C-B-A corresponding to Advanced-Intermediate-Beginner.
 
-
-
-### 2.1 For training our CEFR models 
-We structured our dataset such that the each text (from a set of same text at 3 different readability levels) is treated as individual data point with labels in the set {C, B, A}. 
-
-### 2.2 For fine-tuning LLMs
-The aim of fine tuning is unidirectional where the model is to be trained to simplify ONLY. The data is structured such that from a set of same text at 3 readability levels, we create 3 data observations; the higher level text is treated as context and the lower level as target. The 3 generated subsamples pairs of context-target are 3-2, 3-1, and 2-1.
-
-Sources of data: NewsInLevels, OneStopEnglishCorpus, Wiki, and Newsela.
+![goals](pictures/cefr.png)
 
 ---
 
-## 3. AI Model: Classifier + Simplifier + Safety Check
+# 3. Our AI Model: Classifier + Simplifier + Safety Check
 In the domain of language learning and content adaptation, the ability to classify and simplify texts according to language proficiency levels is essential. 
 Below, we present the modeling designed to classify texts into one of three predefined CEFR levels—Basic, Intermediate, and Advanced—and subsequently simplify the text according to the target level. The modeling operates in two main components: a text classifier and a text simplifier. The classifier uses a ktrain BERT model classification model, while the simplifier is based on variants of the llama-2 language model. We demonstrate the efficiency and accuracy of the tool in both classification and simplification tasks.
 
