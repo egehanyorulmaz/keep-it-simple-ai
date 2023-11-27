@@ -5,17 +5,10 @@ Keep it Simple is an AI tool designed to simplify text into a more readable, und
 Made for everyone, whether you're new to English, a young learner, or someone who faces challenges with reading due to learning issues.
 
 ---
-## An AI-based Assistive Technology
+# Motivation behind Creating an Assistive Technology
 
-65.6 million individuals in the United States have learning and attention issues (U.S. Census Bureau, 2019). This represents a significant portion of the population - 1 in 5 people - who struggle with tasks requiring sustained focus, such as reading extensive text. 
 
-This challenge is exacerbated in our digital age, where information is predominantly disseminated online.
-
-The increasing prevalence of learning and attention issues underscores the importance of developing effective technological aids. Historically, technology has played a pivotal role in assisting individuals with learning and attention difficulties. Notable examples include:
-- Spelling Check Tools
-- Text-to-Speech software
-- Reading Pens
-- Display Control options
+<img width="885" alt="Screenshot 2023-11-26 at 8 47 44 PM" src="https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/ce42076a-3a5b-4cda-9e9f-3e04dd9db5d2">
 
 
 Building upon the insights gained from these technological advancements, we have developed an AI-driven solution. The goal is to create a tool that not only assists in overcoming the challenges posed by learning and attention issues but also enhances the overall learning experience for all users.
@@ -25,10 +18,11 @@ Building upon the insights gained from these technological advancements, we have
                        But for people with disabilities, technology makes things possible.'
                                             – Mary Pat Radabaugh
 
+
 We aim to make the digital realm more inclusive and information more easily digestible.
 
 ---
-## Table of Contents
+# Table of Contents
 1. Our Goal
 2. Data
 4. Model Evaluation 
