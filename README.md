@@ -8,20 +8,16 @@ Made for everyone, whether you’re new to English, a young learner, or someone 
 # Motivation behind Creating an Assistive Technology
 
 
-<<<<<<< Updated upstream
-<img width="885" alt="Screenshot 2023-11-26 at 8 47 44 PM" src="https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/ce42076a-3a5b-4cda-9e9f-3e04dd9db5d2">
-=======
+
 <img width=“885” alt=“Screenshot 2023-11-26 at 8 47 44 PM” src=“https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/ce42076a-3a5b-4cda-9e9f-3e04dd9db5d2”>
->>>>>>> Stashed changes
+
 
 
 Building upon the insights gained from these technological advancements, we have developed an AI-driven solution. The goal is to create a tool that not only assists in overcoming the challenges posed by learning and attention issues but also enhances the overall learning experience for all users.
 
-<<<<<<< Updated upstream
-<img width="878" alt="Screenshot 2023-11-26 at 9 00 44 PM" src="https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/607dcad5-48bb-43d9-8d90-3d14f11e8a0f">
-=======
+
 <img width=“878” alt=“Screenshot 2023-11-26 at 9 00 44 PM” src=“https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/607dcad5-48bb-43d9-8d90-3d14f11e8a0f”>
->>>>>>> Stashed changes
+
 
 We aim to make the digital realm more inclusive and information more easily digestible.
 
@@ -38,13 +34,7 @@ We aim to make the digital realm more inclusive and information more easily dige
 ---
 # 1. Our Goals
 
-<<<<<<< Updated upstream
-<img width="722" alt="Screenshot 2023-11-26 at 9 51 23 PM" src="https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/baa737a2-bd1d-4158-8565-59315000682d">
-=======
-<img width=“722” alt=“Screenshot 2023-11-26 at 9 51 23 PM” src=“https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/baa737a2-bd1d-4158-8565-59315000682d”>
-
 ![goals](pictures/goals.png)
->>>>>>> Stashed changes
 
 ---
 
@@ -52,20 +42,10 @@ We aim to make the digital realm more inclusive and information more easily dige
 
 We collected the open source data available in multiple levels of readability as defined by the [Common European Framework of Reference for Languages (CEFR)](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions).
 
-<<<<<<< Updated upstream
-Its important to understand the structure of this data, which has the same text rewritten in different levels of readability. From the source of these datasets, there are 6 levels in which the text is available, but we map it to 3 major levels defined by CEFR as C-B-A corresponding to Advanced-Intermediate-Beginner.
-=======
 It’s important to understand the structure of this data, which has the same text rewritten in different levels of readability. From the source of these datasets, there are 6 levels in which the text is available, but we map it to 3 major levels defined by CEFR as C-B-A corresponding to Advanced-Intermediate-Beginner.
->>>>>>> Stashed changes
 
-
-
-
-<<<<<<< Updated upstream
-<img width="337" alt="Screenshot 2023-11-06 at 6 47 42 PM" src="https://github.com/AnkitaNambiar/keep-it-simple-ai/assets/105748980/a7beabe5-fc98-48bb-bd88-67f9e96daeab">
-=======
 <img width=“337” alt=“Screenshot 2023-11-06 at 6 47 42 PM” src=“https://github.com/AnkitaNambiar/keep-it-simple-ai/assets/105748980/a7beabe5-fc98-48bb-bd88-67f9e96daeab”>
->>>>>>> Stashed changes
+
 
 
 ### 2.1 For training our CEFR models 
