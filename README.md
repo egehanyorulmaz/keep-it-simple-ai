@@ -13,11 +13,7 @@ Made for everyone, whether you're new to English, a young learner, or someone wh
 
 Building upon the insights gained from these technological advancements, we have developed an AI-driven solution. The goal is to create a tool that not only assists in overcoming the challenges posed by learning and attention issues but also enhances the overall learning experience for all users.
 
-
-                                  'For most people, technology makes things easier. 
-                       But for people with disabilities, technology makes things possible.'
-                                            – Mary Pat Radabaugh
-
+<img width="878" alt="Screenshot 2023-11-26 at 9 00 44 PM" src="https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/105748980/607dcad5-48bb-43d9-8d90-3d14f11e8a0f">
 
 We aim to make the digital realm more inclusive and information more easily digestible.
 
