@@ -34,7 +34,7 @@
 ## Table of Contents
 1. [Our Goals](#our-goals)
 2. [Data](#data-with-readability-levels)
-3. [Model](#our-ai-model-safety-check-%2B-classifier-%2B-simplifier)
+3. [Model](#our-ai-model-safety-check--classifier--simplifier)
 4. [Model Evaluation](#model-evaluation) 
 5. [User Interface](#user-interface) 
 6. [Findings](#findings)
@@ -42,7 +42,7 @@
 8. [About Us](#about-us)
 
 ---
-## 1. Our Goals
+## Our Goals
 
 <p align="center">
   <img src="pictures/goals.png" alt="goals" width="800" height="390">
@@ -50,7 +50,7 @@
 
 ---
 
-## 2. Data With Readability Levels
+## Data With Readability Levels
 
 We collected open source articles from '[News in Levels](https://www.newsinlevels.com/)' and 'Wikipedia'/ '[Simple Wikipedia](https://simple.wikipedia.org/wiki/),' as well as text from '[OneStopEnglish](https://github.com/nishkalavallabhi/OneStopEnglishCorpus)' research dataset. 
 
@@ -64,7 +64,7 @@ There are 6 CEFR levels, but we mapped our data to 3 major levels: CEFFR C-B-A c
 
 ---
 
-## 3. Our AI Model: Safety Check + Classifier + Simplifier
+## Our AI Model: Safety Check + Classifier + Simplifier
 
 Our model first classifies texts into the predefined CEFR levels and then simplifies the content to match the desired reading level. We also flag if a text has Unsafe Text, including profane language and hate speech.
 
@@ -83,7 +83,7 @@ Our model first classifies texts into the predefined CEFR levels and then simpli
   <img src="pictures/simplifier.png" alt="simplifier" width="750" height="350">
 </p>
 
-## 4. Model Evaluation
+## Model Evaluation
 For the robust evaluation of the tool’s performance, we’ve incorporated several methods:
 1. **CEFR (Common European Framework of Reference for Languages)**: Using our classifier, we generate labels for the produced text and juxtapose it against the ground truth from our evaluation set.
 
@@ -110,15 +110,15 @@ An aggregate of the following metrics is used to measure the complexity of the p
   <img src="pictures/gpt-eval.png" alt="simplifier" width="700" height="350">
 </p>
 
-## 5. User Interface 
+## User Interface 
 
 Accessibility Features:
 
-## 6. Findings
+## Findings
 
 
 
-## 7. How to Use
+## How to Use
 
 1. Access the tool via our web portal.
 2. Paste or type in the content you wish to simplify.
@@ -133,7 +133,7 @@ Accessibility Features:
 3. For local testing, run the Streamlit app.
 4. For deploying on your server, modify the necessary configuration settings.
 
-## 8. About Us
+## About Us
 
 Team: 
 - Ankita Nambiar
