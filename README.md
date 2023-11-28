@@ -32,14 +32,14 @@
 
 ---
 ## Table of Contents
-1. [Our Goals](#-our-goals)
-2. [Data](#-data-with-readability-levels)
-3. [Model](#-our-ai-model-safety-check-%2B-classifier-%2B-simplifier)
-4. [Model Evaluation](#-model-evaluation) 
-5. [User Interface](#-user-interface) 
-6. [Findings](#-findings)
-7. [How to Use](#-how-to-use)
-8. [About Us](#-about-us)
+1. [Our Goals](#our-goals)
+2. [Data](#data-with-readability-levels)
+3. [Model](#our-ai-model-safety-check--classifier--simplifier)
+4. [Model Evaluation](#model-evaluation) 
+5. [User Interface](#user-interface) 
+6. [Findings](#findings)
+7. [How to Use](#how-to-use)
+8. [About Us](#about-us)
 
 ---
 ## Our Goals
