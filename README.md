@@ -84,15 +84,15 @@ Our model first classifies texts into the predefined CEFR levels and then simpli
 </p>
 
 ## Model Evaluation
-For the robust evaluation of the tool’s performance, we’ve incorporated several methods:
+For the robust evaluation of the Simplification tool’s performance, we’ve incorporated several methods:
 1. **CEFR (Common European Framework of Reference for Languages)**: Using our classifier, we generate labels for the produced text and juxtapose it against the ground truth from our evaluation set.
 
 #### Results:
 <p align="center">
-  <img src="pictures/cefr-eval.png" alt="simplifier" width="700" height="350">
+  <img src="pictures/cefr-eval.png" alt="cefr-eval" width="700" height="350">
 </p>
  
-2. **Aggregate of Gunning Fog Index, Flesch Kincaid Reading Ease score, and Dale Chall Readability Score from python's `textstat` library:**
+2. **Aggregate of Gunning Fog Index, Flesch Kincaid Reading Ease score, and Dale Chall Readability Score from Python's `textstat` library:**
 An aggregate of the following metrics is used to measure the complexity of the produced text.
    - Gunning Fog Index: Evaluates readability based on complex words (>3 syllables) density and average sentence length
    - Flesch Kincaid Reading Ease score: Evaluates readability based on average syllables per word and average sentence length
@@ -100,15 +100,18 @@ An aggregate of the following metrics is used to measure the complexity of the p
   
 #### Results: 
 <p align="center">
-  <img src="pictures/textstat-eval.png" alt="simplifier" width="700" height="350">
+  <img src="pictures/textstat-eval.png" alt="textstat-eval" width="700" height="350">
 </p>
 
 3. **GPT-4 Score**: GPT-4 is asked to rate the complexity of the output text on a scale of 1-100. 
 
 #### Results:
 <p align="center">
-  <img src="pictures/gpt-eval.png" alt="simplifier" width="700" height="350">
+  <img src="pictures/gpt-eval.png" alt="gpt-eval" width="700" height="350">
 </p>
+
+Overall, we see that the **fine-tuned Llama-2 7b chat** model performs best for the simplification task. Comparison with the results of the out-of-box model shows that our fine-tuning greatly improved the quality of the generated text for the simplification task. 
+
 
 ## User Interface 
 
