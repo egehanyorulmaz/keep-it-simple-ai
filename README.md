@@ -83,24 +83,32 @@ Our model first classifies texts into the predefined CEFR levels and then simpli
   <img src="pictures/simplifier.png" alt="simplifier" width="750" height="350">
 </p>
 
-
 ## 4. Model Evaluation
 For the robust evaluation of the tool’s performance, we’ve incorporated several methods:
-1. **CEFR (Common European Framework of Reference for Languages)**: A readability index, trained on a dataset sourced from Kaggle. Using this, we generate labels for the produced text and juxtapose it against the ground truth from our evaluation set.
-2. **SMOG (Simple Measure of Gobbledygook)**: Assesses the years of education required to comprehend a piece of writing.
-3. **Flesch Reading Ease Score**: A test that rates text on a 100-point scale; the higher the score, the easier it is to understand the document.
-4. **Additional Indices**: Incorporation of other readability indices to comprehensively gauge the model’s capability in conditional text simplification.
+1. **CEFR (Common European Framework of Reference for Languages)**: Using our classifier, we generate labels for the produced text and juxtapose it against the ground truth from our evaluation set.
 
-#### GPT-4 as a Judge of Model Responses
-![image](https://github.com/egehanyorulmaz/keep-it-simple-ai/assets/48676337/cb9103c1-98ec-4326-a8e0-96cd6c75f26a)
+#### Results:
+<p align="center">
+  <img src="pictures/cefr-eval.png" alt="simplifier" width="700" height="350">
+</p>
+ 
+2. **Aggregate of Gunning Fog Index, Flesch Kincaid Reading Ease score, and Dale Chall Readability Score from python's `textstat` library:**
+An aggregate of the following metrics is used to measure the complexity of the produced text.
+   - Gunning Fog Index: Evaluates readability based on complex words (>3 syllables) density and average sentence length
+   - Flesch Kincaid Reading Ease score: Evaluates readability based on average syllables per word and average sentence length
+   - Dale Chall Readability Score: Evaluates readability based on average sentence length and frequency of difficult words (words that are not present in a list of 3000 easy words)
+  
+#### Results: 
+<p align="center">
+  <img src="pictures/textstat-eval.png" alt="simplifier" width="700" height="350">
+</p>
 
-|      Model       | CEFR Accuracy |     SMOG     | Flesch Reading Ease |      GPT-4 Judge    |
-| :--------------: | :-----------: | :----------: | :-----------------: | :-----------------: |
-| Llama-2-7b       | VAL1          |              |                     |                     |
-| Llama-2-13b      | VAL2          |              |                     |                     |
-| Llama-2-7b-chat  | VAL2          |              |                     |                     |
-| Llama-2-13b-chat | VAL2          |              |                     |                     |
-| Mistral-7b       | VAL2          |              |                     |                     |
+3. **GPT-4 Score**: GPT-4 is asked to rate the complexity of the output text on a scale of 1-100. 
+
+#### Results:
+<p align="center">
+  <img src="pictures/gpt-eval.png" alt="simplifier" width="700" height="350">
+</p>
 
 ## 5. User Interface 
 
