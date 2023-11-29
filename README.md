@@ -112,7 +112,13 @@ An aggregate of the following metrics is used to measure the complexity of the p
 
 ## User Interface 
 
-Accessibility Features:
+<p align="center">
+  <img src="pictures/ui.png" alt="ui" width="700" height="">
+</p>
+
+UI created and deployed with Streamlit. User's input text is classified as a reading level, seen above in "Input text is at [Advanced] Level." User can then choose to simplify the text to a Beginner or Intermediate level in the "Simplify to:" option.
+
+**Inclusivity features** included were bionic reading Mode, text-to-speech, font display adjustment, and PDF download.
 
 ## Challenges, Findings, and Future Work
 
