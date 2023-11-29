@@ -37,7 +37,7 @@
 3. [Model](#our-ai-model-safety-check--classifier--simplifier)
 4. [Model Evaluation](#model-evaluation) 
 5. [User Interface](#user-interface) 
-6. [Findings](#findings)
+6. [Findings](#challenges-findings-and-future-work)
 7. [How to Use](#how-to-use)
 8. [About Us](#about-us)
 
@@ -89,7 +89,7 @@ For the robust evaluation of the tool’s performance, we’ve incorporated seve
 
 #### Results:
 <p align="center">
-  <img src="pictures/cefr-eval.png" alt="simplifier" width="700" height="350">
+  <img src="pictures/cefr-eval.png" alt="cefr-eval" width="700" height="350">
 </p>
  
 2. **Aggregate of Gunning Fog Index, Flesch Kincaid Reading Ease score, and Dale Chall Readability Score from python's `textstat` library:**
@@ -100,22 +100,29 @@ An aggregate of the following metrics is used to measure the complexity of the p
   
 #### Results: 
 <p align="center">
-  <img src="pictures/textstat-eval.png" alt="simplifier" width="700" height="350">
+  <img src="pictures/textstat-eval.png" alt="textstat-eval" width="700" height="350">
 </p>
 
 3. **GPT-4 Score**: GPT-4 is asked to rate the complexity of the output text on a scale of 1-100. 
 
 #### Results:
 <p align="center">
-  <img src="pictures/gpt-eval.png" alt="simplifier" width="700" height="350">
+  <img src="pictures/gpt-eval.png" alt="eval" width="700" height="350">
 </p>
 
 ## User Interface 
 
 Accessibility Features:
 
-## Findings
+## Challenges, Findings, and Future Work
 
+<p align="center">
+  <img src="pictures/challengesandfindings.png" alt="challengesandfindings" width="700" height="350">
+</p>
+
+<p align="center">
+  <img src="pictures/futurework.png" alt="futurework" width="700" height="350">
+</p>
 
 
 ## How to Use
