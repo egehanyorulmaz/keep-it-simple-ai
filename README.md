@@ -37,7 +37,7 @@
 3. [Model](#our-ai-model-safety-check--classifier--simplifier)
 4. [Model Evaluation](#model-evaluation) 
 5. [User Interface](#user-interface) 
-6. [Findings](#findings)
+6. [Findings](#challenges-findings-and-future-work)
 7. [How to Use](#how-to-use)
 8. [About Us](#about-us)
 
@@ -56,7 +56,7 @@ We collected open source articles from '[News in Levels](https://www.newsinlevel
 
 These sources have the same text in multiple reading levels, which we define with the [Common European Framework of Reference for Languages (CEFR)](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions).
 
-There are 6 CEFR levels, but we mapped our data to 3 major levels: CEFFR C-B-A corresponding to Advanced-Intermediate-Beginner.
+There are 6 CEFR levels, but we mapped our data to 3 major levels: CEFR C-B-A corresponding to Advanced-Intermediate-Beginner.
 
 <p align="center">
   <img src="pictures/cefr.png" alt="goals" width="600" height="200">
@@ -89,7 +89,7 @@ For the robust evaluation of the tool’s performance, we’ve incorporated seve
 
 #### Results:
 <p align="center">
-  <img src="pictures/cefr-eval.png" alt="simplifier" width="700" height="350">
+  <img src="pictures/cefr-eval.png" alt="cefr-eval" width="700" height="350">
 </p>
  
 2. **Aggregate of Gunning Fog Index, Flesch Kincaid Reading Ease score, and Dale Chall Readability Score from python's `textstat` library:**
@@ -100,22 +100,39 @@ An aggregate of the following metrics is used to measure the complexity of the p
   
 #### Results: 
 <p align="center">
-  <img src="pictures/textstat-eval.png" alt="simplifier" width="700" height="350">
+  <img src="pictures/textstat-eval.png" alt="textstat-eval" width="700" height="350">
 </p>
 
 3. **GPT-4 Score**: GPT-4 is asked to rate the complexity of the output text on a scale of 1-100. 
 
 #### Results:
 <p align="center">
-  <img src="pictures/gpt-eval.png" alt="simplifier" width="700" height="350">
+  <img src="pictures/gpt-eval.png" alt="eval" width="700" height="350">
 </p>
+
+Overall, we see that the fine-tuned **Llama-2 7b chat model** performs best for the simplification task. Comparison with the results of the out-of-box model shows that our fine-tuning greatly improved the quality of the generated text for the task.
+
 
 ## User Interface 
 
-Accessibility Features:
+<p align="center">
+  <img src="pictures/ui.png" alt="ui" width="700" height="">
+</p>
 
-## Findings
+UI created and deployed with Streamlit. User's input text is classified as a reading level, seen above in "Input text is at [Advanced] Level." User can then choose to simplify the text to a Beginner or Intermediate level in the "Simplify to:" option.
 
+
+**Inclusivity features** included are bionic reading, text-to-speech, font display adjustment, and PDF download.
+
+## Challenges, Findings, and Future Work
+
+<p align="center">
+  <img src="pictures/challengesandfindings.png" alt="challengesandfindings" width="700" height="350">
+</p>
+
+<p align="center">
+  <img src="pictures/futurework.png" alt="futurework" width="700" height="350">
+</p>
 
 
 ## How to Use
@@ -141,9 +158,9 @@ Team:
 - Lavanya Srivastava
 - Prayut Jain
 
-Conversation AI with Nick Kadochnikov @ University of Chicago M.S. in Applied Data Science 
+Conversational AI with Nick Kadochnikov @ University of Chicago M.S. in Applied Data Science 
 
 Contributions, feedback, and improvements are always welcome. Feel free to submit pull requests or raise issues.
 This project is licensed under the MIT License. Refer to the `LICENSE` file for more details.
 
-                                    Keep It Simple. Making Information Accessible with AI. 
+                       Keep It Simple. Making Information Accessible with AI. 
