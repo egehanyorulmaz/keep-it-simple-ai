@@ -1,0 +1,10 @@
+authtoken: 2X2gkUuexQEn9BJsTgSkkBfEXXl_hiaz5ovqYb4atQeRGEBM
+tunnels:
+  first_tunnel:
+    addr: 5000
+    proto: http
+    bind_tls: true
+  second_tunnel:
+    addr: 8501
+    proto: http
+    bind_tls: true
