@@ -1,5 +1,6 @@
 import ktrain
-from ktrain import text
+from ktrain import text, predictor
+import numpy as np
 
 import seaborn as sns
 import matplotlib.pyplot as plt

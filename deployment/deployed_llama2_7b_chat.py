@@ -11,7 +11,7 @@ from flask_cors import CORS
 from helpers.chat_model_prompt_generator import LanguageLevelAssistant
 
 ### SIMPLIFICATION MODEL ###
-PATH = "gs://kisai-data-msca310019-capstone/Text_Simplification/finetuned_llama2_responses.csv"
+PATH = "gs://XXX/Text_Simplification/finetuned_llama2_responses.csv"
 model_name = "meta-llama/Llama-2-7b-chat-hf"
 seed = 42
 assistant = LanguageLevelAssistant(model_name)

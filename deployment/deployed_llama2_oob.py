@@ -42,7 +42,7 @@ def make_inference(instruction, context = None):
     # display(Markdown(response))
     return filtered_response
 
-PATH = "gs://kisai-data-msca310019-capstone/Text_Simplification/finetuned_llama2_responses.csv"
+PATH = "gs://XXX/Text_Simplification/finetuned_llama2_responses.csv"
 model_name = "meta-llama/Llama-2-7b-hf" 
 seed = 42
 
