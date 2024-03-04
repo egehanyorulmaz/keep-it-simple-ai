@@ -3,6 +3,7 @@ import torch
 from peft import AutoPeftModelForCausalLM
 from transformers import AutoTokenizer
 
+
 class LanguageLevelAssistant:
     """
     A class to assist in language level translation tasks, using a specified language model.
@@ -40,11 +41,11 @@ class LanguageLevelAssistant:
         model = AutoPeftModelForCausalLM.from_pretrained(
             model_dir,
             low_cpu_mem_usage=True,
-            device_map = "auto",
+            device_map="auto",
             # offload_dir="./model/llm_offload",
-            token = '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'
+            token='XXX'
         )
-        tokenizer = AutoTokenizer.from_pretrained(model_name, token = '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')
+        tokenizer = AutoTokenizer.from_pretrained(model_name, token='XXX')
         tokenizer.pad_token = tokenizer.eos_token
         tokenizer.padding_side = "right"
 
@@ -117,8 +118,6 @@ class LanguageLevelAssistant:
         except Exception as e:
             print(f"An error occurred during inference: {e}")
             return None
-
-
 
     @staticmethod
     def map_cefr_to_text(language_level):
