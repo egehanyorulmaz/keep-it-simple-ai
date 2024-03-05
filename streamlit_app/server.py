@@ -72,7 +72,7 @@ else:
 model_dir = "./model/Llama2_7b"
 model_name = "meta-llama/Llama-2-7b-chat-hf"
 seed = 42
-# kisai-data-msca310019-capstone/Text_Simplification/models/kisai-llama-2-7b-chat/version_1/final_checkpoint
+# XXX/Text_Simplification/models/kisai-llama-2-7b-chat/version_1/final_checkpoint
 if os.path.isdir(model_dir):
     
     print("Loading simplification model...")
