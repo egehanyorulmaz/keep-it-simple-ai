@@ -183,31 +183,6 @@ def ai_safety():
     print(f"The input is {output}") 
     return jsonify({"result": output})
 
-# def ai_safety():
-#     print("/aisafety request")
-#     req_json = request.get_json()
-#     context = req_json["text"]
-#     hs_predictions = hatespeech_pipe.predict(context)[0]
-    
-#     probabilities = defaultdict()
-#     for output in hs_predictions:
-#         if output['label']=='LABEL_0':
-#             # HATE SPEECH PROBABILITY
-#             probabilities["hs_prob"] = output["score"]
-#         elif output['label']=='LABEL_1':
-#             # NOT HATE SPEECH PROBABILITY
-#             probabilities["non_hs_prob"] = output["score"]
-    
-    
-#     if probabilities["non_hs_prob"] - probabilities["hs_prob"] > safety_probability_threshold:
-#         output = "safe"
-#     elif probabilities["non_hs_prob"] - probabilities["hs_prob"] > 0:
-#         output = "not_sure_but_safe"
-#     else:
-#         output = "not_safe"
-    
-#     return jsonify({
-#         "result": output})
 
 # CEFR classification route     
 @app.route('/cefr', methods=['POST'])
